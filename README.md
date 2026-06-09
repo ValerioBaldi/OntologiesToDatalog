@@ -10,4 +10,4 @@ Structure (src/owl-datalog/): <br>
     -Translator contains a class to translate an ontology(OntologyTranslator.java), a class to translate a query (QueryTranslator.java), and a class to map IRIs (IriMapper.java)<br>
     -model contains the class to define the encoding for datalog atoms (Atom.java), rules (Rule.java) and programs (Program.java) <br>
     -main.java <br>
--
+
