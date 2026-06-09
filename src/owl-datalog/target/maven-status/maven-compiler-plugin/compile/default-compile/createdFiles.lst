@@ -1,0 +1,10 @@
+org\example\Translator\IriMapper.class
+org\example\Translator\OntologyTranslator.class
+org\example\Main.class
+org\example\Translator\QueryTranslator$1.class
+org\example\model\Rule.class
+org\example\Translator\QueryTranslator.class
+org\example\App.class
+org\example\serializer\DatalogSerializer.class
+org\example\model\Atom.class
+org\example\model\Program.class

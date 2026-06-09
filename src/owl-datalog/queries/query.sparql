@@ -1,0 +1,11 @@
+PREFIX ex: <http://example.org/university#>
+
+SELECT ?x WHERE {
+  {
+    ?x a ex:Student .
+  }
+  UNION
+  {
+    ?x a ex:Professor .
+  }
+}

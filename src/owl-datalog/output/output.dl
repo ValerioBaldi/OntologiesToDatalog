@@ -1,0 +1,55 @@
+classInst(alice, student).
+classInst(bob, professor).
+classInst(logic101, course).
+roleInst(alice, logic101, enrolledIn).
+roleInst(bob, logic101, teaches).
+roleInst(charlie, logic101, enrolledIn).
+subClass(student, person).
+subClass(professor, person).
+subRole(teaches, memberOf).
+subRole(enrolledIn, memberOf).
+domain(person, memberOf).
+domain(professor, teaches).
+domain(student, enrolledIn).
+range(course, memberOf).
+range(course, teaches).
+range(course, enrolledIn).
+inverse(hasStudent, enrolledIn).
+inverse(enrolledIn, hasStudent).
+classWit(w_course, course).
+classInst(w_course, course).
+classWit(w_person, person).
+classInst(w_person, person).
+classWit(w_professor, professor).
+classInst(w_professor, professor).
+classWit(w_student, student).
+classInst(w_student, student).
+subjWit(ws_enrolledin, enrolledin).
+objWit(wo_enrolledin, enrolledin).
+roleInst(ws_enrolledin, wo_enrolledin, enrolledin).
+subjWit(ws_hasstudent, hasstudent).
+objWit(wo_hasstudent, hasstudent).
+roleInst(ws_hasstudent, wo_hasstudent, hasstudent).
+subjWit(ws_memberof, memberof).
+objWit(wo_memberof, memberof).
+roleInst(ws_memberof, wo_memberof, memberof).
+subjWit(ws_teaches, teaches).
+objWit(wo_teaches, teaches).
+roleInst(ws_teaches, wo_teaches, teaches).
+
+classInst(E, B) :- classInst(E, A), subClass(A, B).
+classInst(E1, A) :- roleInst(E1, E2, R), domain(W, R), subClass(W, A).
+classInst(E2, A) :- roleInst(E1, E2, R), inverse(S, R), domain(W, S), subClass(W, A).
+roleInst(E1, E2, S) :- roleInst(E1, E2, R), subRole(R, S).
+roleInst(E2, E1, S) :- roleInst(E1, E2, R), inverse(R1, R), subRole(R1, S).
+roleInst(E2, E1, S) :- roleInst(E1, E2, R), inverse(S1, S), subRole(R, S1).
+roleInst(E1, E2, S) :- roleInst(E1, E2, R), subRole(R1, S1), inverse(R1, R), inverse(S1, S).
+subClass(A, B) :- classWit(E, A), classInst(E, B).
+subClass(W, A) :- domain(W, R), subjWit(E, R), classInst(E, A).
+subClass(W, A) :- inverse(R, S), domain(W, S), objWit(E, R), classInst(E, A).
+subRole(R, S) :- subjWit(E1, R), objWit(E2, R), roleInst(E1, E2, S).
+subRole(R, S1) :- inverse(S1, S), subjWit(E1, R), objWit(E2, R), roleInst(E2, E1, S).
+subRole(R1, S) :- inverse(R1, R), subjWit(E1, R), objWit(E2, R), roleInst(E2, E1, S).
+subRole(R1, S1) :- inverse(R1, R), inverse(S1, S), subjWit(E1, R), objWit(E2, R), roleInst(E1, E2, S).
+query_result(X) :- classInst(X, student).
+query_result(X) :- classInst(X, professor).
