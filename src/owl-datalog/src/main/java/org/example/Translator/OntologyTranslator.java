@@ -23,11 +23,19 @@ public class OntologyTranslator {
 
         OntologyEncoding(ontology, program);
 
+        addSignaturePredicates(ontology, program);
+
+        encodingTopAndBottomPredicates(program);
+
         createWitnesses(ontology, program);
+
+        TopAndBottomAxioms(program);
 
         InferenceOfABoxFacts(program);
 
         PositiveTboxAxioms(program);
+
+        RemoveWitnessesAndAuxiliaryAxioms(program);
 
         try {
                 iriMapper.save(mappingPath);
@@ -264,6 +272,277 @@ public class OntologyTranslator {
         }
     }
 
+   private void addSignaturePredicates(OWLOntology ontology, Program program) {
+
+        // Individual signature
+        ontology.individualsInSignature().forEach(ind -> {
+                if (!ind.isAnonymous()) {
+                String e = iriMapper.getSymbol(
+                        ind.asOWLNamedIndividual().getIRI().toString()
+                );
+
+                program.addFact(new Atom("inSignatureI", List.of(e)));
+                }
+        });
+
+        // Concept signature
+        ontology.classesInSignature().forEach(cls -> {
+                String a = iriMapper.getSymbol(
+                        cls.getIRI().toString()
+                );
+
+                program.addFact(new Atom("inSignatureC", List.of(a)));
+        });
+
+        // Role signature
+        ontology.objectPropertiesInSignature().forEach(prop -> {
+                String r = iriMapper.getSymbol(
+                        prop.getIRI().toString()
+                );
+
+                program.addFact(new Atom("inSignatureR", List.of(r)));
+        });
+
+        // Generic signature rules
+        program.addRule(new Rule(
+                new Atom("inSignature", List.of("X")),
+                List.of(new Atom("inSignatureI", List.of("X")))
+        ));
+
+        program.addRule(new Rule(
+                new Atom("inSignature", List.of("X")),
+                List.of(new Atom("inSignatureC", List.of("X")))
+        ));
+
+        program.addRule(new Rule(
+                new Atom("inSignature", List.of("X")),
+                List.of(new Atom("inSignatureR", List.of("X")))
+        ));
+}
+
+    private void encodingTopAndBottomPredicates(Program program) {
+
+        // Rules from 16 to 19 encode the semantics of top and bottom concepts and roles
+
+        Rule rule16 = new Rule(
+                new Atom(
+                        "classInst", 
+                        List.of("E", "topC")
+                ),
+                List.of(new Atom(
+                        "inSignatureI", 
+                        List.of("E")
+                ))
+        );
+
+        program.addRule(rule16);
+
+        Rule rule17 = new Rule(
+                new Atom(
+                        "roleInst", 
+                        List.of("E1", "E2", "topR")
+                ),
+                List.of(
+                        new Atom("inSignatureI", List.of("E1")),
+                        new Atom("inSignatureI", List.of("E2"))
+                )
+        );
+
+        program.addRule(rule17);
+
+        // Rows 18 to 23
+
+        program.addFact(new Atom(
+                "inSignatureC", 
+                List.of("topC")
+        ));
+        
+        program.addFact(new Atom(
+                "inSignatureR", 
+                List.of("topR")
+        ));
+
+        program.addFact(new Atom(
+                "inSignatureC", 
+                List.of("bottomC")
+        ));
+
+        program.addFact(new Atom(
+                "inSignatureR", 
+                List.of("bottomR")
+        ));
+
+        // Introduced domainTopR and domainBottomR to represent the domain of topR and bottomR respectively
+
+        program.addFact(new Atom(
+                "domain",
+                List.of("domainTopR", "TopR")
+        ));
+
+        program.addFact(new Atom(
+                "inverse",
+                List.of("TopR", "TopR")
+        ));
+
+        program.addFact(new Atom(
+                "domain",
+                List.of("domainBottomR", "BottomR")
+        ));
+
+        program.addFact(new Atom(
+                "inverse",
+                List.of("BottomR", "BottomR")
+        ));
+
+        program.addFact(new Atom(
+                "subClass",
+                List.of("domainTopR", "TopC")
+        ));
+
+        program.addFact(new Atom(
+                "subClass",
+                List.of("BottomC", "domainTopR")
+        ));
+    }
+
+    private void TopAndBottomAxioms(Program program) {
+
+        // Rules from 24 to 31 encode the semantics of top and bottom concepts and roles
+
+        Rule rule24 = new Rule(
+                new Atom(
+                        "subClass",
+                        List.of("C", "topC")
+                ),
+                List.of(
+                        new Atom(
+                                "inSignatureC",
+                                List.of("C"))
+                        )
+        );
+
+        program.addRule(rule24);
+
+        Rule rule25 = new Rule(
+                new Atom(
+                        "subClass", 
+                        List.of("bottomC", "C")
+                ),
+                List.of(new Atom(
+                        "inSignatureC", 
+                        List.of("C")
+                ))
+        );
+
+        program.addRule(rule25);
+
+        Rule rule26 = new Rule(
+                new Atom(
+                        "subClass", 
+                        List.of("A", "A")
+                ),
+                List.of(new Atom(
+                        "inSignatureC", 
+                        List.of("A")
+                ))
+        );
+
+        program.addRule(rule26);
+
+        Rule rule27 = new Rule(
+                new Atom(
+                        "disjC", 
+                        List.of("C", "bottomC")
+                ),
+                List.of(new Atom(
+                        "inSignatureC", 
+                        List.of("C")
+                ))
+        );
+
+        program.addRule(rule27);
+
+        Rule rule28 = new Rule(
+                new Atom(
+                        "subRole", 
+                        List.of("R", "topR")
+                ),
+                List.of(new Atom(
+                        "inSignatureR", 
+                        List.of("R")
+                ))
+        );
+        
+        program.addRule(rule28);
+
+        Rule rule29 = new Rule(
+                new Atom(
+                        "subRole", 
+                        List.of("bottomR", "R")
+                ),
+                List.of(new Atom(
+                        "inSignatureR", 
+                        List.of("R")
+                ))
+        );
+        
+        program.addRule(rule29);
+
+        Rule rule30 = new Rule(
+                new Atom(
+                        "subRole", 
+                        List.of("R", "R")
+                ),
+                List.of(new Atom(
+                        "inSignatureR", 
+                        List.of("R")
+                ))
+        );
+
+        program.addRule(rule30);
+
+        Rule rule31 = new Rule(
+                new Atom(
+                        "disjR", 
+                        List.of("R", "bottomR")
+                ),
+                List.of(new Atom(
+                        "inSignatureR", 
+                        List.of("R")
+                ))
+        );
+
+        program.addRule(rule31);
+
+        Rule rule32 = new Rule(
+                new Atom(
+                        "subClass", 
+                        List.of("C", "domainTopR")
+                ),
+                List.of(new Atom(
+                        "inSignatureC", 
+                        List.of("C")
+                ))
+        );
+
+        program.addRule(rule32);
+
+        Rule rule33 = new Rule(
+                new Atom(
+                        "subClass", 
+                        List.of("domainBottomR", "C")
+                ),
+                List.of(new Atom(
+                        "inSignatureC", 
+                        List.of("C")
+                ))
+        );
+
+        program.addRule(rule33);
+
+        // 34 and 35 still to be added
+    }
+
     private void createWitnesses(OWLOntology ontology,
                                 Program program) {
 
@@ -350,7 +629,7 @@ public class OntologyTranslator {
 
     private void InferenceOfABoxFacts(Program program) {
 
-        Rule r1 = new Rule(
+        Rule r39 = new Rule(
 
                 new Atom(
                         "classInst",
@@ -371,10 +650,10 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r1);
+        program.addRule(r39);
 
 
-        Rule r2 = new Rule(
+        Rule r40 = new Rule(
 
                 new Atom(
                         "classInst",
@@ -400,9 +679,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r2);        
+        program.addRule(r40);        
 
-        Rule r3 = new Rule(
+        Rule r41 = new Rule(
 
                 new Atom(
                         "classInst",
@@ -431,9 +710,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r3);
+        program.addRule(r41);
 
-        Rule r4 = new Rule(
+        Rule r42 = new Rule(
 
                 new Atom(
                         "roleInst",
@@ -453,9 +732,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r4);
+        program.addRule(r42);
 
-        Rule r5 = new Rule(
+        Rule r43 = new Rule(
 
                 new Atom(
                         "roleInst",
@@ -478,9 +757,9 @@ public class OntologyTranslator {
                         )
                 )
         );
-        program.addRule(r5);
+        program.addRule(r43);
 
-        Rule r6 = new Rule(
+        Rule r44 = new Rule(
 
                 new Atom(
                         "roleInst",
@@ -503,9 +782,9 @@ public class OntologyTranslator {
                         )
                 )
         );
-        program.addRule(r6);
+        program.addRule(r44);
 
-        Rule r7 = new Rule(
+        Rule r45 = new Rule(
 
                 new Atom(
                         "roleInst",
@@ -533,12 +812,12 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r7);
+        program.addRule(r45);
     }
 
     private void PositiveTboxAxioms(Program program) {
 
-        Rule r1 = new Rule(
+        Rule r54 = new Rule(
 
                 new Atom(
                         "subClass",
@@ -558,9 +837,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r1);
+        program.addRule(r54);
 
-        Rule r2 = new Rule(
+        Rule r55 = new Rule(
 
                 new Atom(
                         "subClass",
@@ -584,9 +863,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r2);
+        program.addRule(r55);
 
-        Rule r3 = new Rule(
+        Rule r56 = new Rule(
 
                 new Atom(
                         "subClass",
@@ -615,9 +894,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r3);
+        program.addRule(r56);
 
-        Rule r4 = new Rule(
+        Rule r57 = new Rule(
 
                 new Atom(
                         "subRole",
@@ -641,9 +920,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r4);
+        program.addRule(r57);
 
-        Rule r5 = new Rule(
+        Rule r58 = new Rule(
 
                 new Atom(
                         "subRole",
@@ -672,9 +951,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r5);
+        program.addRule(r58);
 
-        Rule r6 = new Rule(
+        Rule r59 = new Rule(
 
                 new Atom(
                         "subRole",
@@ -703,9 +982,9 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r6);
+        program.addRule(r59);
 
-        Rule r7 = new Rule(
+        Rule r60 = new Rule(
 
                 new Atom(
                         "subRole",
@@ -739,6 +1018,105 @@ public class OntologyTranslator {
                 )
         );
 
-        program.addRule(r7);
+        program.addRule(r60);
     }
+
+    private void RemoveWitnessesAndAuxiliaryAxioms(Program program) {
+
+        Rule rule67 = new Rule(
+                new Atom(
+                        "classInstF", 
+                        List.of("E", "A")
+                ),
+                List.of(
+                        new Atom(
+                                "inSignature", 
+                                List.of("E")
+                        ),
+                        new Atom(
+                                "classInst", 
+                                List.of("E", "A")
+                        ),
+                        new Atom(
+                                "inSignature", 
+                                List.of("A")
+                        )
+                )
+        );
+
+        program.addRule(rule67);
+
+        Rule rule68 = new Rule(
+                new Atom(
+                        "roleInstF", 
+                        List.of("E1", "E2", "A")
+                ),
+                List.of(
+                        new Atom(
+                                "inSignature", 
+                                List.of("E1")
+                        ),
+                        new Atom(
+                                "inSignature", 
+                                List.of("E2")
+                        ),
+                        new Atom(
+                                "roleInst", 
+                                List.of("E1", "E2", "A")
+                        ),
+                        new Atom(
+                                "inSignature", 
+                                List.of("A")
+                        )
+                )
+        );
+
+        program.addRule(rule68);
+
+        Rule rule69 = new Rule(
+                new Atom(
+                        "subClassF", 
+                        List.of("E1", "E2")
+                ),
+                List.of(
+                        new Atom(
+                                "inSignature", 
+                                List.of("E1")
+                        ),
+                        new Atom(
+                                "inSignature", 
+                                List.of("E2")
+                        ),
+                        new Atom(
+                                "subClass", 
+                                List.of("E1", "E2")
+                        )
+                )
+        );
+
+        program.addRule(rule69);
+
+        Rule rule70 = new Rule(
+                new Atom(
+                        "subRoleF", 
+                        List.of("E1", "E2")
+                ),
+                List.of(
+                        new Atom(
+                                "inSignature", 
+                                List.of("E1")
+                        ),
+                        new Atom(
+                                "inSignature", 
+                                List.of("E2")
+                        ),
+                        new Atom(
+                                "subRole", 
+                                List.of("E1", "E2")
+                        )
+                )
+        );
+
+        program.addRule(rule70);
+     }
 }

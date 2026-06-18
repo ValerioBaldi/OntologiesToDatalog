@@ -18,23 +18,39 @@ inverse(hasStudent, enrolledIn).
 inverse(enrolledIn, hasStudent).
 classWit(w_course, course).
 classInst(w_course, course).
+witness(w_course).
 classWit(w_person, person).
 classInst(w_person, person).
+witness(w_person).
 classWit(w_professor, professor).
 classInst(w_professor, professor).
+witness(w_professor).
 classWit(w_student, student).
 classInst(w_student, student).
-subjWit(ws_enrolledin, enrolledin).
-objWit(wo_enrolledin, enrolledin).
-roleInst(ws_enrolledin, wo_enrolledin, enrolledin).
-subjWit(ws_hasstudent, hasstudent).
-objWit(wo_hasstudent, hasstudent).
-roleInst(ws_hasstudent, wo_hasstudent, hasstudent).
-subjWit(ws_memberof, memberof).
-objWit(wo_memberof, memberof).
-roleInst(ws_memberof, wo_memberof, memberof).
+witness(w_student).
+subjWit(ws_enrolledIn, enrolledIn).
+objWit(wo_enrolledIn, enrolledIn).
+witness(ws_enrolledIn).
+witness(wo_enrolledIn).
+roleWit(ws_enrolledIn, wo_enrolledIn, enrolledIn).
+roleInst(ws_enrolledIn, wo_enrolledIn, enrolledIn).
+subjWit(ws_hasStudent, hasStudent).
+objWit(wo_hasStudent, hasStudent).
+witness(ws_hasStudent).
+witness(wo_hasStudent).
+roleWit(ws_hasStudent, wo_hasStudent, hasStudent).
+roleInst(ws_hasStudent, wo_hasStudent, hasStudent).
+subjWit(ws_memberOf, memberOf).
+objWit(wo_memberOf, memberOf).
+witness(ws_memberOf).
+witness(wo_memberOf).
+roleWit(ws_memberOf, wo_memberOf, memberOf).
+roleInst(ws_memberOf, wo_memberOf, memberOf).
 subjWit(ws_teaches, teaches).
 objWit(wo_teaches, teaches).
+witness(ws_teaches).
+witness(wo_teaches).
+roleWit(ws_teaches, wo_teaches, teaches).
 roleInst(ws_teaches, wo_teaches, teaches).
 
 classInst(E, B) :- classInst(E, A), subClass(A, B).
