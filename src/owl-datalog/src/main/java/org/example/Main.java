@@ -25,7 +25,7 @@ public class Main {
 
                 OWLOntology ontology =
                         manager.loadOntologyFromOntologyDocument(
-                                new File("ontology/input.owl")
+                                new File("ontology/animal_taxonomy_ontology.owl")
                         );
 
                 String mappingPath = "output/iri-mapping.properties";
@@ -38,7 +38,7 @@ public class Main {
 
 
                 String queryString = Files.readString(
-                        Paths.get("queries/query.sparql")
+                        Paths.get("queries/queryAnimal.sparql")
                 );
                 
                 QueryTranslator queryTranslator = new QueryTranslator();

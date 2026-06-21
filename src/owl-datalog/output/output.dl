@@ -1,58 +1,1996 @@
-classInst(alice, student).
-classInst(bob, professor).
-classInst(logic101, course).
-roleInst(alice, logic101, enrolledIn).
-roleInst(bob, logic101, teaches).
-roleInst(charlie, logic101, enrolledIn).
-subClass(student, person).
-subClass(professor, person).
-subRole(teaches, memberOf).
-subRole(enrolledIn, memberOf).
-domain(person, memberOf).
-domain(professor, teaches).
-domain(student, enrolledIn).
-range(course, memberOf).
-range(course, teaches).
-range(course, enrolledIn).
-inverse(hasStudent, enrolledIn).
-inverse(enrolledIn, hasStudent).
-classWit(w_course, course).
-classInst(w_course, course).
-witness(w_course).
-classWit(w_person, person).
-classInst(w_person, person).
-witness(w_person).
-classWit(w_professor, professor).
-classInst(w_professor, professor).
-witness(w_professor).
-classWit(w_student, student).
-classInst(w_student, student).
-witness(w_student).
-subjWit(ws_enrolledIn, enrolledIn).
-objWit(wo_enrolledIn, enrolledIn).
-witness(ws_enrolledIn).
-witness(wo_enrolledIn).
-roleWit(ws_enrolledIn, wo_enrolledIn, enrolledIn).
-roleInst(ws_enrolledIn, wo_enrolledIn, enrolledIn).
-subjWit(ws_hasStudent, hasStudent).
-objWit(wo_hasStudent, hasStudent).
-witness(ws_hasStudent).
-witness(wo_hasStudent).
-roleWit(ws_hasStudent, wo_hasStudent, hasStudent).
-roleInst(ws_hasStudent, wo_hasStudent, hasStudent).
-subjWit(ws_memberOf, memberOf).
-objWit(wo_memberOf, memberOf).
-witness(ws_memberOf).
-witness(wo_memberOf).
-roleWit(ws_memberOf, wo_memberOf, memberOf).
-roleInst(ws_memberOf, wo_memberOf, memberOf).
-subjWit(ws_teaches, teaches).
-objWit(wo_teaches, teaches).
-witness(ws_teaches).
-witness(wo_teaches).
-roleWit(ws_teaches, wo_teaches, teaches).
-roleInst(ws_teaches, wo_teaches, teaches).
+classInst(q133190, taxon).
+classInst(q24966129, taxon).
+classInst(q34740, taxonomicRank).
+classInst(q2200094, taxon).
+classInst(q2718670, taxon).
+classInst(q6054237, taxonomicRank).
+classInst(q22286521, q7378).
+classInst(q13050139, q2934).
+classInst(q25265, taxon).
+classInst(q25306, taxon).
+classInst(q2889003, taxonomicRank).
+classInst(q107588, taxon).
+classInst(q13580316, q15978631).
+classInst(q138851995, q7377).
+classInst(q3965313, taxonomicRank).
+classInst(q145206, taxon).
+classInst(q127960, taxon).
+classInst(q713623, taxonomicRank).
+classInst(q19088, taxon).
+classInst(q5174, taxon).
+classInst(q2497754, taxon).
+classInst(q124776186, taxon).
+classInst(q18389731, taxon).
+classInst(l1369361_S1, q5113).
+classInst(q2361851, taxonomicRank).
+classInst(q15731102, taxon).
+classInst(q31570541, q7378).
+classInst(q3569037, q2934).
+classInst(q10554284, q18498).
+classInst(q4828939, taxon).
+classInst(q134143, taxon).
+classInst(q1378800, taxon).
+classInst(q115903280, q7378).
+classInst(q135800, taxon).
+classInst(q7439311, taxon).
+classInst(q11289092, q7378).
+classInst(q22285567, q7378).
+classInst(q27070, taxon).
+classInst(q134178605, q729).
+classInst(q27207, taxon).
+classInst(q117303888, q2934).
+classInst(q62995912, q7378).
+classInst(q22934894, taxon).
+classInst(q19595522, taxon).
+classInst(q21446607, taxon).
+classInst(q133006, taxon).
+classInst(q2212116, q729).
+classInst(q41240892, q2934).
+classInst(q116326854, q11788).
+classInst(q7380, taxon).
+classInst(q3280581, taxon).
+classInst(q17230297, q7378).
+classInst(q3484151, q5452918).
+classInst(q123509500, taxon).
+classInst(q227936, taxonomicRank).
+classInst(q4126704, taxon).
+classInst(q37517, taxonomicRank).
+classInst(q6667323, taxon).
+classInst(q1205110, taxon).
+classInst(q150866, taxon).
+classInst(q12252889, q2934).
+classInst(q160830, taxon).
+classInst(q978378, q780).
+classInst(q131738381, q7378).
+classInst(q11557238, q7378).
+classInst(q5452918, taxon).
+classInst(q110852461, q430).
+classInst(q48836620, taxon).
+classInst(q2013709, taxon).
+classInst(q81875, taxon).
+classInst(q131341, taxon).
+classInst(q206930, taxon).
+classInst(q152, taxon).
+classInst(q146481, taxonomicRank).
+classInst(q172923, taxon).
+classInst(q322241, taxon).
+classInst(q17092469, taxon).
+classInst(q25497, taxon).
+classInst(q2092297, q5113).
+classInst(q26708524, taxon).
+classInst(q5867959, taxonomicRank).
+classInst(q2043179, taxon).
+classInst(q22666877, taxonomicRank).
+classInst(q18355419, q7378).
+classInst(l1370332_S1, q25324).
+classInst(q13173666, q5113).
+classInst(q48836623, taxon).
+classInst(q7432, taxonomicRank).
+classInst(q136657023, q140).
+classInst(q117303933, q2934).
+classInst(q21659, taxon).
+classInst(q181537, taxon).
+classInst(q12265381, q18498).
+classInst(q136031287, q133006).
+classInst(q28687332, q4126704).
+classInst(q10262706, taxon).
+classInst(q110047432, taxon).
+classInst(q728566, taxon).
+classInst(q131092, taxon).
+classInst(q41241416, q2934).
+classInst(q7239, taxon).
+classInst(q132444887, q7377).
+classInst(q13112493, q7378).
+classInst(q31840142, q133006).
+classInst(q139827101, q15978631).
+classInst(q137556672, q729).
+classInst(q107087944, q7378).
+classInst(q242047, taxon).
+classInst(q729, taxon).
+classInst(q124217263, q2934).
+classInst(q1002374, taxon).
+classInst(q104877544, q7378).
+classInst(q52798775, taxon).
+classInst(q36602, taxonomicRank).
+classInst(q136125676, q729).
+classInst(q103010985, taxon).
+classInst(q853058, taxon).
+classInst(q116914103, q11788).
+classInst(q3504061, taxonomicRank).
+classInst(q132666, taxon).
+classInst(q12254209, q11788).
+classInst(q136312277, q7380).
+classInst(q184774, taxon).
+classInst(q16501908, q2934).
+classInst(q310746, taxon).
+classInst(q974811, taxon).
+classInst(q17239396, q7378).
+classInst(q139368883, q15978631).
+classInst(q25329, taxon).
+classInst(l1371072_S1, q19806047).
+classInst(q11282806, q7378).
+classInst(q121009148, q25265).
+classInst(q5381965, taxon).
+classInst(q137525086, q140).
+classInst(q24287064, q2934).
+classInst(q118465317, q430).
+classInst(q32859402, q25497).
+classInst(q7285377, q7378).
+classInst(q125338915, q729).
+classInst(l1565309, q729).
+classInst(q3497035, taxon).
+classInst(q11631855, q7378).
+classInst(q1153785, taxonomicRank).
+classInst(q131801, taxon).
+classInst(q26375, taxon).
+classInst(q6054535, taxonomicRank).
+classInst(q2082668, taxon).
+classInst(q5113, taxon).
+classInst(q27379, taxon).
+classInst(q139926327, q11788).
+classInst(q60922428, taxonomicRank).
+classInst(q2513125, taxon).
+classInst(q120488301, taxon).
+classInst(q25833, taxon).
+classInst(q471797, taxon).
+classInst(q1349838, taxon).
+classInst(q125058758, q4126704).
+classInst(q57814795, taxon).
+classInst(q23003932, q2934).
+classInst(q33229472, taxon).
+classInst(q109363458, q7378).
+classInst(q10281053, taxon).
+classInst(q132812, taxon).
+classInst(q2372824, taxon).
+classInst(q616657, taxon).
+classInst(q209516, q729).
+classInst(q3060510, taxon).
+classInst(q138679011, q729).
+classInst(q132603063, q133006).
+classInst(q2474088, taxon).
+classInst(q5445608, taxon).
+classInst(q21467375, q7378).
+classInst(q124775759, taxon).
+classInst(q5867051, taxonomicRank).
+classInst(q5852697, taxon).
+classInst(q111523235, q133006).
+classInst(q104444537, q729).
+classInst(l1369565_S1, q25324).
+classInst(q11316298, q7378).
+classInst(q17191147, q7378).
+classInst(q19159, taxon).
+classInst(q116719152, q11788).
+classInst(q136822154, q780).
+classInst(q68947, taxonomicRank).
+classInst(q430, taxon).
+classInst(q964455, taxon).
+classInst(q3197660, q5452918).
+classInst(q5868144, taxonomicRank).
+classInst(q164280, taxonomicRank).
+classInst(q85790087, q18498).
+classInst(q3059449, taxon).
+classInst(q18234846, q7378).
+classInst(q106488638, taxon).
+classInst(q17361352, q7378).
+classInst(q131760983, q25306).
+classInst(q124695285, q10811).
+classInst(q2740164, taxon).
+classInst(q635162, taxon).
+classInst(q129281642, q780).
+classInst(q136125584, q729).
+classInst(q130910, taxon).
+classInst(q950661, taxon).
+classInst(q117303880, q2934).
+classInst(q3235669, taxon).
+classInst(q159344, taxon).
+classInst(q3491996, taxonomicRank).
+classInst(q138921, taxon).
+classInst(q19561774, taxon).
+classInst(q123668219, q18498).
+classInst(q124695168, q7380).
+classInst(q777371, taxon).
+classInst(l1370106_S1, q7377).
+classInst(q5359418, taxon).
+classInst(e354c620669c9b17f88f987502637f2c, taxonomicRank).
+classInst(q33230017, taxon).
+classInst(q35409, taxonomicRank).
+classInst(q28266, taxon).
+classInst(q7460384, taxon).
+classInst(q7377, taxon).
+classInst(q2136103, taxonomicRank).
+classInst(q111210645, q140).
+classInst(q14924557, q19159).
+classInst(q22087764, taxon).
+classInst(l1370308_S1, q10915).
+classInst(q133521395, q10811).
+classInst(q131840267, q15978631).
+classInst(q2007442, taxonomicRank).
+classInst(q123604297, q7378).
+classInst(q5173, taxon).
+classInst(q132777908, q729).
+classInst(q19168, taxon).
+classInst(q13965050, taxon).
+classInst(q6192329, q4126704).
+classInst(q36732, taxonomicRank).
+classInst(q20686726, taxon).
+classInst(q6462265, taxonomicRank).
+classInst(q136705410, taxon).
+classInst(q186334, taxon).
+classInst(q178559, taxon).
+classInst(q3322575, taxon).
+classInst(q121924002, q19939).
+classInst(q120477747, q780).
+classInst(q130942, taxon).
+classInst(q20615031, q7378).
+classInst(q128863356, taxon).
+classInst(q52762328, taxon).
+classInst(q2910821, taxon).
+classInst(q27414, taxon).
+classInst(q2254408, taxon).
+classInst(q131793, taxon).
+classInst(q138757406, q729).
+classInst(q107616032, q7378).
+classInst(q68119354, taxon).
+classInst(q17361473, q7378).
+classInst(q11290997, q7378).
+classInst(l1565294, q729).
+classInst(q4687717, taxon).
+classInst(l1370948_S1, q25324).
+classInst(q474156, taxon).
+classInst(q112913267, q430).
+classInst(q140, taxon).
+classInst(q605457, taxon).
+classInst(q15978631, taxon).
+classInst(q137756890, q5113).
+classInst(q11340094, q7378).
+classInst(q251390, q729).
+classInst(q7378, taxon).
+classInst(q1209254, taxon).
+classInst(q28647762, taxon).
+classInst(q19858692, taxonomicRank).
+classInst(q7675722, q7378).
+classInst(q18498, taxon).
+classInst(q1326204, q7378).
+classInst(q7506274, taxonomicRank).
+classInst(q138341560, q5113).
+classInst(q20181950, q7378).
+classInst(q4188599, taxon).
+classInst(q4828332, taxon).
+classInst(q1131559, taxon).
+classInst(q22934885, taxon).
+classInst(q117812846, q7377).
+classInst(q135742305, q729).
+classInst(q12642424, q7378).
+classInst(q17191608, q7378).
+classInst(q10388280, taxon).
+classInst(iri, taxonomicRank).
+classInst(q28712152, q18498).
+classInst(q134683, taxon).
+classInst(q14505128, q7380).
+classInst(q189069, taxon).
+classInst(q102426375, q18498).
+classInst(q124776324, taxon).
+classInst(q10539543, q430).
+classInst(l1371073_S1, q19806047).
+classInst(q130385174, q7377).
+classInst(q38348, taxonomicRank).
+classInst(q18235757, q7378).
+classInst(q124776411, taxon).
+classInst(q136929210, q729).
+classInst(q117303721, q2934).
+classInst(q2934, taxon).
+classInst(q97933208, q19939).
+classInst(q1292935, q7378).
+classInst(q5414469, taxon).
+classInst(q167681, q7377).
+classInst(q20862, taxon).
+classInst(q80174, taxon).
+classInst(q782930, taxon).
+classInst(q189804, taxon).
+classInst(q1797813, taxon).
+classInst(q130570290, q18498).
+classInst(q12858994, q322241).
+classInst(l1370926_S1, q26375).
+classInst(q6054425, taxonomicRank).
+classInst(q10915, taxon).
+classInst(q135002236, q5113).
+classInst(q11788, taxon).
+classInst(q121925911, q19939).
+classInst(q3305022, taxon).
+classInst(q25241, taxon).
+classInst(q11316484, q7378).
+classInst(q117303856, q2934).
+classInst(q41239734, q2934).
+classInst(q117303876, q2934).
+classInst(q935880, q5113).
+classInst(q149892, taxon).
+classInst(q111994724, q133006).
+classInst(q30606055, q7378).
+classInst(q138413538, q5113).
+classInst(q10811, taxon).
+classInst(q129021, taxon).
+classInst(q137869147, q5113).
+classInst(q85851974, q729).
+classInst(q25324, taxon).
+classInst(q135682812, q729).
+classInst(q780, taxon).
+classInst(q1643924, q7378).
+classInst(q125503838, q5113).
+classInst(q117334944, q7378).
+classInst(q109365506, q430).
+classInst(q329457, taxon).
+classInst(q131391, taxon).
+classInst(q2752679, taxonomicRank).
+classInst(q6311258, taxonomicRank).
+classInst(q26214, taxon).
+classInst(q930410, taxon).
+classInst(q3239179, taxon).
+classInst(q19163, taxon).
+classInst(q136586, taxon).
+classInst(q2111790, taxonomicRank).
+classInst(q118901763, q7378).
+classInst(q177856, q5113).
+classInst(q2478975, taxon).
+classInst(q171283, taxon).
+classInst(q150598, taxon).
+classInst(q102470, taxon).
+classInst(q2752642, taxon).
+classInst(q3150876, taxonomicRank).
+classInst(q3316130, q18498).
+classInst(q135333, taxon).
+classInst(q117303807, q2934).
+classInst(q23926871, taxon).
+classInst(q28746016, taxon).
+classInst(q674893, q7378).
+classInst(q135424, taxon).
+classInst(q125876373, q7378).
+classInst(q130990000, q133006).
+classInst(q133808944, q80174).
+classInst(q230177, taxon).
+classInst(q5414620, taxon).
+classInst(q22933805, taxon).
+classInst(q139603504, q15978631).
+classInst(q16548850, taxon).
+classInst(q136125668, q729).
+classInst(q134688, taxon).
+classInst(q11900385, q7378).
+classInst(q133187, taxon).
+classInst(q188438, taxon).
+classInst(q19939, taxon).
+classInst(q222951, taxon).
+classInst(l1370313_S1, q7380).
+classInst(q139633478, q7378).
+classInst(q127159748, q2934).
+classInst(q117303903, q2934).
+classInst(q126890975, q2934).
+classInst(l1370111_S1, q25306).
+classInst(q131950, taxon).
+classInst(q138341565, q7377).
+classInst(q139890142, q15978631).
+classInst(q27399, taxon).
+classInst(q116937458, q19939).
+classInst(q137956721, q5113).
+classInst(q178228, taxon).
+classInst(q5853182, taxon).
+classInst(q134681, taxon).
+classInst(q17141714, q7378).
+classInst(q19806047, taxon).
+classInst(q941624, taxon).
+classInst(q14943214, taxon).
+classInst(q2382443, taxon).
+classInst(q82261, taxon).
+classInst(q4495383, q7378).
+classInst(q138798479, q133006).
+classInst(q20868, taxon).
+classInst(q138619256, q15978631).
+classInst(q23809240, taxon).
+classInst(q3059636, taxon).
+classInst(q48995893, taxon).
+classInst(q26308, taxon).
+roleInst(q27070, q5867959, hasRank).
+roleInst(q7377, q37517, hasRank).
+roleInst(q2934, q68947, hasRank).
+roleInst(q28266, q227936, hasRank).
+roleInst(q19168, q2007442, hasRank).
+roleInst(q20868, q7506274, hasRank).
+roleInst(q68119354, q5868144, hasRank).
+roleInst(q80174, q34740, hasRank).
+roleInst(q5359418, q2136103, hasRank).
+roleInst(q103010985, q713623, hasRank).
+roleInst(q27399, q5868144, hasRank).
+roleInst(q26308, q36602, hasRank).
+roleInst(q3322575, q22666877, hasRank).
+roleInst(q10262706, q2889003, hasRank).
+roleInst(q21446607, q2136103, hasRank).
+roleInst(q230177, q164280, hasRank).
+roleInst(q242047, q164280, hasRank).
+roleInst(q729, q36732, hasRank).
+roleInst(q2372824, q35409, hasRank).
+roleInst(q10915, q38348, hasRank).
+roleInst(q4126704, q7432, hasRank).
+roleInst(q206930, q6311258, hasRank).
+roleInst(q19163, q5867051, hasRank).
+roleInst(q107588, q227936, hasRank).
+roleInst(q4687717, q2889003, hasRank).
+roleInst(q5113, q37517, hasRank).
+roleInst(q25497, q35409, hasRank).
+roleInst(q19088, q19858692, hasRank).
+roleInst(q19159, q3504061, hasRank).
+roleInst(q171283, q34740, hasRank).
+roleInst(q7439311, e354c620669c9b17f88f987502637f2c, hasRank).
+roleInst(q11788, q35409, hasRank).
+roleInst(q25324, q35409, hasRank).
+roleInst(q7380, q36602, hasRank).
+roleInst(q15978631, q7432, hasRank).
+roleInst(q22934894, q227936, hasRank).
+roleInst(q178228, q7432, hasRank).
+roleInst(q780, q68947, hasRank).
+roleInst(q131391, q2889003, hasRank).
+roleInst(q5445608, q6462265, hasRank).
+roleInst(q33229472, q3965313, hasRank).
+roleInst(q26375, q35409, hasRank).
+roleInst(q127960, q34740, hasRank).
+roleInst(q1205110, q19858692, hasRank).
+roleInst(q22934885, q164280, hasRank).
+roleInst(q132666, q6054237, hasRank).
+roleInst(q19806047, q227936, hasRank).
+roleInst(q131793, q713623, hasRank).
+roleInst(q27207, q60922428, hasRank).
+roleInst(q19561774, q2889003, hasRank).
+roleInst(q27414, q5867959, hasRank).
+roleInst(q102470, q2136103, hasRank).
+roleInst(q635162, q35409, hasRank).
+roleInst(q135424, q7506274, hasRank).
+roleInst(q471797, q5868144, hasRank).
+roleInst(q131092, q713623, hasRank).
+roleInst(q25306, q36602, hasRank).
+roleInst(q160830, q3504061, hasRank).
+roleInst(q2513125, q5867051, hasRank).
+roleInst(q222951, q34740, hasRank).
+roleInst(q2910821, q6054535, hasRank).
+roleInst(q82261, q5867959, hasRank).
+roleInst(q149892, q34740, hasRank).
+roleInst(q2718670, q6054237, hasRank).
+roleInst(q106488638, q713623, hasRank).
+roleInst(q25329, q36602, hasRank).
+roleInst(q140, q7432, hasRank).
+roleInst(q2478975, q2007442, hasRank).
+roleInst(q5452918, q2889003, hasRank).
+roleInst(q25241, q1153785, hasRank).
+roleInst(q184774, q7432, hasRank).
+roleInst(q605457, q3965313, hasRank).
+roleInst(q1002374, q713623, hasRank).
+roleInst(q2382443, q22666877, hasRank).
+roleInst(q188438, q713623, hasRank).
+roleInst(q19088, q146481, hasRank).
+roleInst(q2474088, q164280, hasRank).
+roleInst(q186334, q36602, hasRank).
+roleInst(q25265, q35409, hasRank).
+roleInst(q10281053, q2136103, hasRank).
+roleInst(q728566, q6462265, hasRank).
+roleInst(q21659, q36602, hasRank).
+roleInst(q134143, q713623, hasRank).
+roleInst(q189804, q164280, hasRank).
+roleInst(q19939, q7432, hasRank).
+roleInst(q33230017, q3965313, hasRank).
+roleInst(q16548850, q227936, hasRank).
+roleInst(q430, q5868144, hasRank).
+roleInst(q130942, q5867051, hasRank).
+roleInst(q3305022, q3965313, hasRank).
+roleInst(q974811, q164280, hasRank).
+roleInst(q128863356, q713623, hasRank).
+roleInst(q150866, q2111790, hasRank).
+roleInst(q5414620, q7506274, hasRank).
+roleInst(q150866, q3150876, hasRank).
+roleInst(q310746, q34740, hasRank).
+roleInst(q10388280, q6311258, hasRank).
+roleInst(q964455, q3491996, hasRank).
+roleInst(q26214, q2361851, hasRank).
+roleInst(q10811, q37517, hasRank).
+roleInst(q5174, q2752679, hasRank).
+roleInst(q14943214, q2136103, hasRank).
+roleInst(q22933805, q2136103, hasRank).
+roleInst(q3235669, q2889003, hasRank).
+roleInst(q18498, q7432, hasRank).
+roleInst(q130942, q6054425, hasRank).
+roleInst(q3059636, q713623, hasRank).
+roleInst(q941624, q6054535, hasRank).
+roleInst(q853058, q5868144, hasRank).
+roleInst(q27379, q5868144, hasRank).
+roleInst(q172923, q34740, hasRank).
+roleInst(q110047432, iri, hasRank).
+roleInst(q1209254, q5867051, hasRank).
+roleInst(q133006, q7432, hasRank).
+roleInst(q129021, q713623, hasRank).
+subClass(q131793, q134143).
+subClass(q780, q178559).
+subClass(q188438, q2013709).
+subClass(q23926871, q19561774).
+subClass(q729, q159344).
+subClass(q5359418, q20686726).
+subClass(q3322575, q2382443).
+subClass(q18498, q25324).
+subClass(q10388280, q3235669).
+subClass(q15978631, q171283).
+subClass(q131092, q138921).
+subClass(q16548850, q974811).
+subClass(q135424, q728566).
+subClass(q20868, q5445608).
+subClass(q11788, q14943214).
+subClass(q7377, q2082668).
+subClass(q133006, q310746).
+subClass(q149892, q33229472).
+subClass(q2740164, q616657).
+subClass(q110047432, q5445608).
+subClass(q19159, q777371).
+subClass(q171283, q605457).
+subClass(q7380, q135424).
+subClass(q130942, q2910821).
+subClass(q120488301, q729).
+subClass(q5174, q729).
+subClass(q853058, q19168).
+subClass(q1209254, q23809240).
+subClass(q27207, q152).
+subClass(q25497, q25329).
+subClass(q27207, q3059636).
+subClass(q19088, q7239).
+subClass(q107588, q242047).
+subClass(q52762328, q2043179).
+subClass(q3239179, q13965050).
+subClass(q2478975, q2513125).
+subClass(q13965050, q2752642).
+subClass(q68119354, q5414620).
+subClass(q102470, q206930).
+subClass(q4687717, q27070).
+subClass(q3305022, q107588).
+subClass(q19806047, q189804).
+subClass(q11788, q136705410).
+subClass(q230177, q25265).
+subClass(q206930, q5452918).
+subClass(q150866, q5173).
+subClass(q471797, q132666).
+subClass(q134143, q128863356).
+subClass(q135333, q135800).
+subClass(q18389731, q782930).
+subClass(q3060510, q10811).
+subClass(q19939, q127960).
+subClass(q48995893, q48836623).
+subClass(q974811, q26375).
+subClass(q2718670, q25833).
+subClass(q131341, q28647762).
+subClass(q134683, q19159).
+subClass(q131391, q4828332).
+subClass(q25241, q3280581).
+subClass(q188438, q430).
+subClass(q7377, q25241).
+subClass(q10281053, q4687717).
+subClass(q145206, q188438).
+subClass(q7380, q7377).
+subClass(q14943214, q10388280).
+subClass(q5452918, q82261).
+subClass(q19163, q5113).
+subClass(q25306, q106488638).
+subClass(q310746, q33230017).
+subClass(q123509500, q27399).
+subClass(q728566, q471797).
+subClass(q19159, q7460384).
+subClass(q242047, q635162).
+subClass(q964455, q19088).
+subClass(q2043179, q131092).
+subClass(q124776411, q1349838).
+subClass(q19168, q19163).
+subClass(q132666, q25833).
+subClass(q26214, q25241).
+subClass(q160830, q27207).
+subClass(q110047432, q7377).
+subClass(q133006, q7378).
+subClass(q2474088, q25324).
+subClass(q124775759, q189069).
+subClass(q430, q10811).
+subClass(q430, q729).
+subClass(q474156, q48995893).
+subClass(q80174, q605457).
+subClass(q131801, q5414469).
+subClass(q5853182, q124775759).
+subClass(q135800, q2200094).
+subClass(q189804, q25497).
+subClass(q129021, q474156).
+subClass(q1209254, q150598).
+subClass(q189069, q181537).
+subClass(q128863356, q52762328).
+subClass(q4126704, q80174).
+subClass(q5381965, q1209254).
+subClass(q135800, q782930).
+subClass(q1205110, q129021).
+subClass(q133187, q130910).
+subClass(q1002374, q103010985).
+subClass(q25329, q7377).
+subClass(q124775759, q930410).
+subClass(q10915, q150866).
+subClass(q80174, q635162).
+subClass(q2910821, q2497754).
+subClass(q941624, q2497754).
+subClass(q3497035, q134688).
+subClass(q129021, q964455).
+subClass(q25306, q27379).
+subClass(q5414469, q132812).
+subClass(q4828939, q131793).
+subClass(q25329, q68119354).
+subClass(q178228, q172923).
+subClass(q5113, q25241).
+subClass(q3059636, q26214).
+subClass(q124776186, q124776324).
+subClass(q22934894, q22934885).
+subClass(q124776324, q124776411).
+subClass(q22934885, q2372824).
+subClass(q782930, q430).
+subClass(q11788, q25306).
+subClass(q3280581, q10915).
+subClass(q25324, q21446607).
+subClass(q5113, q3239179).
+subClass(q2013709, q186334).
+subClass(q28266, q2474088).
+subClass(q2082668, q28746016).
+subClass(q103010985, q20868).
+subClass(q160830, q1378800).
+subClass(q10811, q19159).
+subClass(q18498, q149892).
+subClass(q474156, q19088).
+subClass(q127960, q230177).
+subClass(q2934, q57814795).
+subClass(q2200094, q782930).
+subClass(q188438, q186334).
+subClass(q780, q1797813).
+subClass(q322241, q5853182).
+subClass(q21659, q15731102).
+subClass(q27414, q25306).
+subClass(q106488638, q1002374).
+subClass(q729, q24966129).
+subClass(q140, q6667323).
+subClass(q2372824, q5359418).
+subClass(q21446607, q10262706).
+subClass(q26308, q20862).
+subClass(q616657, q133190).
+subClass(q22087764, q474156).
+subClass(q3235669, q27414).
+subClass(q27379, q132666).
+subClass(q186334, q430).
+subClass(q172923, q19806047).
+subClass(q605457, q107588).
+subClass(q33229472, q28266).
+subClass(q129021, q22087764).
+subClass(q48836620, q19088).
+subClass(q13965050, q782930).
+subClass(q150866, q3059449).
+subClass(q22933805, q21659).
+subClass(q19088, q3322575).
+subClass(q2934, q1797813).
+subClass(q132812, q322241).
+subClass(q25324, q25306).
+subClass(q133190, q133187).
+subClass(q2910821, q941624).
+subClass(q5414620, q110047432).
+subClass(q4188599, q131391).
+subClass(q24966129, q1131559).
+subClass(q19561774, q26308).
+subClass(q10262706, q27414).
+subClass(q2752642, q782930).
+subClass(q48995893, q19088).
+subClass(q329457, q181537).
+subClass(q27399, q25833).
+subClass(q7439311, q27379).
+subClass(q729, q7239).
+subClass(q430, q52798775).
+subClass(q25306, q25833).
+subClass(q25306, q7377).
+subClass(q2752642, q135333).
+subClass(q25241, q10915).
+subClass(q2200094, q18389731).
+subClass(q25265, q10281053).
+subClass(q171283, q635162).
+subClass(q635162, q7380).
+subClass(q7378, q7377).
+subClass(q48836623, q48836620).
+subClass(q17092469, q130942).
+subClass(q131950, q123509500).
+subClass(q27070, q25306).
+subClass(q635162, q102470).
+subClass(q26375, q22933805).
+subClass(q1131559, q1205110).
+subClass(q184774, q222951).
+subClass(q4828332, q145206).
+subClass(q10811, q329457).
+subClass(q20862, q131950).
+subClass(q2254408, q3497035).
+subClass(q23809240, q160830).
+subClass(q134681, q3059636).
+subClass(q82261, q7380).
+subClass(q25306, q81875).
+subClass(q27399, q2718670).
+subClass(q33230017, q22934894).
+subClass(q780, q184774).
+subClass(q21659, q5113).
+subClass(q149892, q25324).
+subClass(q140, q127960).
+subClass(q5445608, q7439311).
+subClass(q222951, q16548850).
+subClass(q5852697, q950661).
+subClass(q782930, q136586).
+subClass(q2934, q178228).
+subClass(q19939, q6667323).
+subClass(q135333, q782930).
+subClass(q2513125, q26708524).
+subClass(q138921, q4188599).
+subClass(q80174, q3305022).
+subClass(q130942, q2478975).
+subClass(q1349838, q189069).
+subClass(q19595522, q2254408).
+inSignatureI(e354c620669c9b17f88f987502637f2c).
+inSignatureI(iri).
+inSignatureI(l1369361_S1).
+inSignatureI(l1369565_S1).
+inSignatureI(l1370106_S1).
+inSignatureI(l1370111_S1).
+inSignatureI(l1370308_S1).
+inSignatureI(l1370313_S1).
+inSignatureI(l1370332_S1).
+inSignatureI(l1370926_S1).
+inSignatureI(l1370948_S1).
+inSignatureI(l1371072_S1).
+inSignatureI(l1371073_S1).
+inSignatureI(l1565294).
+inSignatureI(l1565309).
+inSignatureI(q1002374).
+inSignatureI(q102426375).
+inSignatureI(q102470).
+inSignatureI(q10262706).
+inSignatureI(q10281053).
+inSignatureI(q103010985).
+inSignatureI(q10388280).
+inSignatureI(q104444537).
+inSignatureI(q104877544).
+inSignatureI(q10539543).
+inSignatureI(q10554284).
+inSignatureI(q106488638).
+inSignatureI(q107087944).
+inSignatureI(q107588).
+inSignatureI(q107616032).
+inSignatureI(q10811).
+inSignatureI(q10915).
+inSignatureI(q109363458).
+inSignatureI(q109365506).
+inSignatureI(q110047432).
+inSignatureI(q110852461).
+inSignatureI(q111210645).
+inSignatureI(q111523235).
+inSignatureI(q111994724).
+inSignatureI(q11282806).
+inSignatureI(q11289092).
+inSignatureI(q11290997).
+inSignatureI(q112913267).
+inSignatureI(q1131559).
+inSignatureI(q11316298).
+inSignatureI(q11316484).
+inSignatureI(q11340094).
+inSignatureI(q1153785).
+inSignatureI(q11557238).
+inSignatureI(q115903280).
+inSignatureI(q11631855).
+inSignatureI(q116326854).
+inSignatureI(q116719152).
+inSignatureI(q116914103).
+inSignatureI(q116937458).
+inSignatureI(q117303721).
+inSignatureI(q117303807).
+inSignatureI(q117303856).
+inSignatureI(q117303876).
+inSignatureI(q117303880).
+inSignatureI(q117303888).
+inSignatureI(q117303903).
+inSignatureI(q117303933).
+inSignatureI(q117334944).
+inSignatureI(q117812846).
+inSignatureI(q11788).
+inSignatureI(q118465317).
+inSignatureI(q118901763).
+inSignatureI(q11900385).
+inSignatureI(q120477747).
+inSignatureI(q120488301).
+inSignatureI(q1205110).
+inSignatureI(q1209254).
+inSignatureI(q121009148).
+inSignatureI(q121924002).
+inSignatureI(q121925911).
+inSignatureI(q12252889).
+inSignatureI(q12254209).
+inSignatureI(q12265381).
+inSignatureI(q123509500).
+inSignatureI(q123604297).
+inSignatureI(q123668219).
+inSignatureI(q124217263).
+inSignatureI(q124695168).
+inSignatureI(q124695285).
+inSignatureI(q124775759).
+inSignatureI(q124776186).
+inSignatureI(q124776324).
+inSignatureI(q124776411).
+inSignatureI(q125058758).
+inSignatureI(q125338915).
+inSignatureI(q125503838).
+inSignatureI(q125876373).
+inSignatureI(q12642424).
+inSignatureI(q126890975).
+inSignatureI(q127159748).
+inSignatureI(q127960).
+inSignatureI(q12858994).
+inSignatureI(q128863356).
+inSignatureI(q129021).
+inSignatureI(q129281642).
+inSignatureI(q1292935).
+inSignatureI(q130385174).
+inSignatureI(q13050139).
+inSignatureI(q130570290).
+inSignatureI(q130910).
+inSignatureI(q130942).
+inSignatureI(q130990000).
+inSignatureI(q131092).
+inSignatureI(q13112493).
+inSignatureI(q131341).
+inSignatureI(q131391).
+inSignatureI(q13173666).
+inSignatureI(q131738381).
+inSignatureI(q131760983).
+inSignatureI(q131793).
+inSignatureI(q131801).
+inSignatureI(q131840267).
+inSignatureI(q131950).
+inSignatureI(q132444887).
+inSignatureI(q132603063).
+inSignatureI(q1326204).
+inSignatureI(q132666).
+inSignatureI(q132777908).
+inSignatureI(q132812).
+inSignatureI(q133006).
+inSignatureI(q133187).
+inSignatureI(q133190).
+inSignatureI(q133521395).
+inSignatureI(q133808944).
+inSignatureI(q134143).
+inSignatureI(q134178605).
+inSignatureI(q134681).
+inSignatureI(q134683).
+inSignatureI(q134688).
+inSignatureI(q1349838).
+inSignatureI(q135002236).
+inSignatureI(q135333).
+inSignatureI(q135424).
+inSignatureI(q135682812).
+inSignatureI(q135742305).
+inSignatureI(q135800).
+inSignatureI(q13580316).
+inSignatureI(q136031287).
+inSignatureI(q136125584).
+inSignatureI(q136125668).
+inSignatureI(q136125676).
+inSignatureI(q136312277).
+inSignatureI(q136586).
+inSignatureI(q136657023).
+inSignatureI(q136705410).
+inSignatureI(q136822154).
+inSignatureI(q136929210).
+inSignatureI(q137525086).
+inSignatureI(q137556672).
+inSignatureI(q137756890).
+inSignatureI(q137869147).
+inSignatureI(q1378800).
+inSignatureI(q137956721).
+inSignatureI(q138341560).
+inSignatureI(q138341565).
+inSignatureI(q138413538).
+inSignatureI(q138619256).
+inSignatureI(q138679011).
+inSignatureI(q138757406).
+inSignatureI(q138798479).
+inSignatureI(q138851995).
+inSignatureI(q138921).
+inSignatureI(q139368883).
+inSignatureI(q139603504).
+inSignatureI(q139633478).
+inSignatureI(q13965050).
+inSignatureI(q139827101).
+inSignatureI(q139890142).
+inSignatureI(q139926327).
+inSignatureI(q140).
+inSignatureI(q14505128).
+inSignatureI(q145206).
+inSignatureI(q146481).
+inSignatureI(q14924557).
+inSignatureI(q14943214).
+inSignatureI(q149892).
+inSignatureI(q150598).
+inSignatureI(q150866).
+inSignatureI(q152).
+inSignatureI(q15731102).
+inSignatureI(q159344).
+inSignatureI(q15978631).
+inSignatureI(q160830).
+inSignatureI(q164280).
+inSignatureI(q1643924).
+inSignatureI(q16501908).
+inSignatureI(q16548850).
+inSignatureI(q167681).
+inSignatureI(q17092469).
+inSignatureI(q171283).
+inSignatureI(q17141714).
+inSignatureI(q17191147).
+inSignatureI(q17191608).
+inSignatureI(q17230297).
+inSignatureI(q17239396).
+inSignatureI(q172923).
+inSignatureI(q17361352).
+inSignatureI(q17361473).
+inSignatureI(q177856).
+inSignatureI(q178228).
+inSignatureI(q178559).
+inSignatureI(q1797813).
+inSignatureI(q181537).
+inSignatureI(q18234846).
+inSignatureI(q18235757).
+inSignatureI(q18355419).
+inSignatureI(q18389731).
+inSignatureI(q184774).
+inSignatureI(q18498).
+inSignatureI(q186334).
+inSignatureI(q188438).
+inSignatureI(q189069).
+inSignatureI(q189804).
+inSignatureI(q19088).
+inSignatureI(q19159).
+inSignatureI(q19163).
+inSignatureI(q19168).
+inSignatureI(q19561774).
+inSignatureI(q19595522).
+inSignatureI(q19806047).
+inSignatureI(q19858692).
+inSignatureI(q19939).
+inSignatureI(q2007442).
+inSignatureI(q2013709).
+inSignatureI(q20181950).
+inSignatureI(q2043179).
+inSignatureI(q20615031).
+inSignatureI(q20686726).
+inSignatureI(q206930).
+inSignatureI(q2082668).
+inSignatureI(q20862).
+inSignatureI(q20868).
+inSignatureI(q2092297).
+inSignatureI(q209516).
+inSignatureI(q2111790).
+inSignatureI(q2136103).
+inSignatureI(q21446607).
+inSignatureI(q21467375).
+inSignatureI(q21659).
+inSignatureI(q2200094).
+inSignatureI(q22087764).
+inSignatureI(q2212116).
+inSignatureI(q22285567).
+inSignatureI(q22286521).
+inSignatureI(q222951).
+inSignatureI(q2254408).
+inSignatureI(q22666877).
+inSignatureI(q227936).
+inSignatureI(q22933805).
+inSignatureI(q22934885).
+inSignatureI(q22934894).
+inSignatureI(q23003932).
+inSignatureI(q230177).
+inSignatureI(q2361851).
+inSignatureI(q2372824).
+inSignatureI(q23809240).
+inSignatureI(q2382443).
+inSignatureI(q23926871).
+inSignatureI(q242047).
+inSignatureI(q24287064).
+inSignatureI(q2474088).
+inSignatureI(q2478975).
+inSignatureI(q24966129).
+inSignatureI(q2497754).
+inSignatureI(q2513125).
+inSignatureI(q251390).
+inSignatureI(q25241).
+inSignatureI(q25265).
+inSignatureI(q25306).
+inSignatureI(q25324).
+inSignatureI(q25329).
+inSignatureI(q25497).
+inSignatureI(q25833).
+inSignatureI(q26214).
+inSignatureI(q26308).
+inSignatureI(q26375).
+inSignatureI(q26708524).
+inSignatureI(q27070).
+inSignatureI(q2718670).
+inSignatureI(q27207).
+inSignatureI(q27379).
+inSignatureI(q27399).
+inSignatureI(q2740164).
+inSignatureI(q27414).
+inSignatureI(q2752642).
+inSignatureI(q2752679).
+inSignatureI(q28266).
+inSignatureI(q28647762).
+inSignatureI(q28687332).
+inSignatureI(q28712152).
+inSignatureI(q28746016).
+inSignatureI(q2889003).
+inSignatureI(q2910821).
+inSignatureI(q2934).
+inSignatureI(q3059449).
+inSignatureI(q3059636).
+inSignatureI(q3060510).
+inSignatureI(q30606055).
+inSignatureI(q310746).
+inSignatureI(q3150876).
+inSignatureI(q31570541).
+inSignatureI(q31840142).
+inSignatureI(q3197660).
+inSignatureI(q322241).
+inSignatureI(q3235669).
+inSignatureI(q3239179).
+inSignatureI(q3280581).
+inSignatureI(q32859402).
+inSignatureI(q329457).
+inSignatureI(q3305022).
+inSignatureI(q3316130).
+inSignatureI(q3322575).
+inSignatureI(q33229472).
+inSignatureI(q33230017).
+inSignatureI(q34740).
+inSignatureI(q3484151).
+inSignatureI(q3491996).
+inSignatureI(q3497035).
+inSignatureI(q3504061).
+inSignatureI(q35409).
+inSignatureI(q3569037).
+inSignatureI(q36602).
+inSignatureI(q36732).
+inSignatureI(q37517).
+inSignatureI(q38348).
+inSignatureI(q3965313).
+inSignatureI(q41239734).
+inSignatureI(q41240892).
+inSignatureI(q41241416).
+inSignatureI(q4126704).
+inSignatureI(q4188599).
+inSignatureI(q430).
+inSignatureI(q4495383).
+inSignatureI(q4687717).
+inSignatureI(q471797).
+inSignatureI(q474156).
+inSignatureI(q4828332).
+inSignatureI(q4828939).
+inSignatureI(q48836620).
+inSignatureI(q48836623).
+inSignatureI(q48995893).
+inSignatureI(q5113).
+inSignatureI(q5173).
+inSignatureI(q5174).
+inSignatureI(q52762328).
+inSignatureI(q52798775).
+inSignatureI(q5359418).
+inSignatureI(q5381965).
+inSignatureI(q5414469).
+inSignatureI(q5414620).
+inSignatureI(q5445608).
+inSignatureI(q5452918).
+inSignatureI(q57814795).
+inSignatureI(q5852697).
+inSignatureI(q5853182).
+inSignatureI(q5867051).
+inSignatureI(q5867959).
+inSignatureI(q5868144).
+inSignatureI(q6054237).
+inSignatureI(q6054425).
+inSignatureI(q6054535).
+inSignatureI(q605457).
+inSignatureI(q60922428).
+inSignatureI(q616657).
+inSignatureI(q6192329).
+inSignatureI(q62995912).
+inSignatureI(q6311258).
+inSignatureI(q635162).
+inSignatureI(q6462265).
+inSignatureI(q6667323).
+inSignatureI(q674893).
+inSignatureI(q68119354).
+inSignatureI(q68947).
+inSignatureI(q713623).
+inSignatureI(q7239).
+inSignatureI(q7285377).
+inSignatureI(q728566).
+inSignatureI(q729).
+inSignatureI(q7377).
+inSignatureI(q7378).
+inSignatureI(q7380).
+inSignatureI(q7432).
+inSignatureI(q7439311).
+inSignatureI(q7460384).
+inSignatureI(q7506274).
+inSignatureI(q7675722).
+inSignatureI(q777371).
+inSignatureI(q780).
+inSignatureI(q782930).
+inSignatureI(q80174).
+inSignatureI(q81875).
+inSignatureI(q82261).
+inSignatureI(q853058).
+inSignatureI(q85790087).
+inSignatureI(q85851974).
+inSignatureI(q930410).
+inSignatureI(q935880).
+inSignatureI(q941624).
+inSignatureI(q950661).
+inSignatureI(q964455).
+inSignatureI(q974811).
+inSignatureI(q978378).
+inSignatureI(q97933208).
+inSignatureC(taxon).
+inSignatureC(taxonomicRank).
+inSignatureC(q1002374).
+inSignatureC(q102470).
+inSignatureC(q10262706).
+inSignatureC(q10281053).
+inSignatureC(q103010985).
+inSignatureC(q10388280).
+inSignatureC(q106488638).
+inSignatureC(q107588).
+inSignatureC(q10811).
+inSignatureC(q10915).
+inSignatureC(q110047432).
+inSignatureC(q1131559).
+inSignatureC(q11788).
+inSignatureC(q120488301).
+inSignatureC(q1205110).
+inSignatureC(q1209254).
+inSignatureC(q123509500).
+inSignatureC(q124775759).
+inSignatureC(q124776186).
+inSignatureC(q124776324).
+inSignatureC(q124776411).
+inSignatureC(q127960).
+inSignatureC(q128863356).
+inSignatureC(q129021).
+inSignatureC(q130910).
+inSignatureC(q130942).
+inSignatureC(q131092).
+inSignatureC(q131341).
+inSignatureC(q131391).
+inSignatureC(q131793).
+inSignatureC(q131801).
+inSignatureC(q131950).
+inSignatureC(q132666).
+inSignatureC(q132812).
+inSignatureC(q133006).
+inSignatureC(q133187).
+inSignatureC(q133190).
+inSignatureC(q134143).
+inSignatureC(q134681).
+inSignatureC(q134683).
+inSignatureC(q134688).
+inSignatureC(q1349838).
+inSignatureC(q135333).
+inSignatureC(q135424).
+inSignatureC(q135800).
+inSignatureC(q136586).
+inSignatureC(q136705410).
+inSignatureC(q1378800).
+inSignatureC(q138921).
+inSignatureC(q13965050).
+inSignatureC(q140).
+inSignatureC(q145206).
+inSignatureC(q14943214).
+inSignatureC(q149892).
+inSignatureC(q150598).
+inSignatureC(q150866).
+inSignatureC(q152).
+inSignatureC(q15731102).
+inSignatureC(q159344).
+inSignatureC(q15978631).
+inSignatureC(q160830).
+inSignatureC(q16548850).
+inSignatureC(q17092469).
+inSignatureC(q171283).
+inSignatureC(q172923).
+inSignatureC(q178228).
+inSignatureC(q178559).
+inSignatureC(q1797813).
+inSignatureC(q181537).
+inSignatureC(q18389731).
+inSignatureC(q184774).
+inSignatureC(q18498).
+inSignatureC(q186334).
+inSignatureC(q188438).
+inSignatureC(q189069).
+inSignatureC(q189804).
+inSignatureC(q19088).
+inSignatureC(q19159).
+inSignatureC(q19163).
+inSignatureC(q19168).
+inSignatureC(q19561774).
+inSignatureC(q19595522).
+inSignatureC(q19806047).
+inSignatureC(q19939).
+inSignatureC(q2013709).
+inSignatureC(q2043179).
+inSignatureC(q20686726).
+inSignatureC(q206930).
+inSignatureC(q2082668).
+inSignatureC(q20862).
+inSignatureC(q20868).
+inSignatureC(q21446607).
+inSignatureC(q21659).
+inSignatureC(q2200094).
+inSignatureC(q22087764).
+inSignatureC(q222951).
+inSignatureC(q2254408).
+inSignatureC(q22933805).
+inSignatureC(q22934885).
+inSignatureC(q22934894).
+inSignatureC(q230177).
+inSignatureC(q2372824).
+inSignatureC(q23809240).
+inSignatureC(q2382443).
+inSignatureC(q23926871).
+inSignatureC(q242047).
+inSignatureC(q2474088).
+inSignatureC(q2478975).
+inSignatureC(q24966129).
+inSignatureC(q2497754).
+inSignatureC(q2513125).
+inSignatureC(q25241).
+inSignatureC(q25265).
+inSignatureC(q25306).
+inSignatureC(q25324).
+inSignatureC(q25329).
+inSignatureC(q25497).
+inSignatureC(q25833).
+inSignatureC(q26214).
+inSignatureC(q26308).
+inSignatureC(q26375).
+inSignatureC(q26708524).
+inSignatureC(q27070).
+inSignatureC(q2718670).
+inSignatureC(q27207).
+inSignatureC(q27379).
+inSignatureC(q27399).
+inSignatureC(q2740164).
+inSignatureC(q27414).
+inSignatureC(q2752642).
+inSignatureC(q28266).
+inSignatureC(q28647762).
+inSignatureC(q28746016).
+inSignatureC(q2910821).
+inSignatureC(q2934).
+inSignatureC(q3059449).
+inSignatureC(q3059636).
+inSignatureC(q3060510).
+inSignatureC(q310746).
+inSignatureC(q322241).
+inSignatureC(q3235669).
+inSignatureC(q3239179).
+inSignatureC(q3280581).
+inSignatureC(q329457).
+inSignatureC(q3305022).
+inSignatureC(q3322575).
+inSignatureC(q33229472).
+inSignatureC(q33230017).
+inSignatureC(q3497035).
+inSignatureC(q4126704).
+inSignatureC(q4188599).
+inSignatureC(q430).
+inSignatureC(q4687717).
+inSignatureC(q471797).
+inSignatureC(q474156).
+inSignatureC(q4828332).
+inSignatureC(q4828939).
+inSignatureC(q48836620).
+inSignatureC(q48836623).
+inSignatureC(q48995893).
+inSignatureC(q5113).
+inSignatureC(q5173).
+inSignatureC(q5174).
+inSignatureC(q52762328).
+inSignatureC(q52798775).
+inSignatureC(q5359418).
+inSignatureC(q5381965).
+inSignatureC(q5414469).
+inSignatureC(q5414620).
+inSignatureC(q5445608).
+inSignatureC(q5452918).
+inSignatureC(q57814795).
+inSignatureC(q5852697).
+inSignatureC(q5853182).
+inSignatureC(q605457).
+inSignatureC(q616657).
+inSignatureC(q635162).
+inSignatureC(q6667323).
+inSignatureC(q68119354).
+inSignatureC(q7239).
+inSignatureC(q728566).
+inSignatureC(q729).
+inSignatureC(q7377).
+inSignatureC(q7378).
+inSignatureC(q7380).
+inSignatureC(q7439311).
+inSignatureC(q7460384).
+inSignatureC(q777371).
+inSignatureC(q780).
+inSignatureC(q782930).
+inSignatureC(q80174).
+inSignatureC(q81875).
+inSignatureC(q82261).
+inSignatureC(q853058).
+inSignatureC(q930410).
+inSignatureC(q941624).
+inSignatureC(q950661).
+inSignatureC(q964455).
+inSignatureC(q974811).
+inSignatureR(hasRank).
+inSignatureC(topC).
+inSignatureR(topR).
+inSignatureC(bottomC).
+inSignatureR(bottomR).
+domain(domainTopR, topR).
+inverse(topR, topR).
+domain(domainBottomR, bottomR).
+inverse(bottomR, bottomR).
+subClass(domainTopR, topC).
+subClass(bottomC, domainTopR).
+classWit(w_taxon, taxon).
+classInst(w_taxon, taxon).
+witness(w_taxon).
+classWit(w_taxonomicRank, taxonomicRank).
+classInst(w_taxonomicRank, taxonomicRank).
+witness(w_taxonomicRank).
+classWit(w_q1002374, q1002374).
+classInst(w_q1002374, q1002374).
+witness(w_q1002374).
+classWit(w_q102470, q102470).
+classInst(w_q102470, q102470).
+witness(w_q102470).
+classWit(w_q10262706, q10262706).
+classInst(w_q10262706, q10262706).
+witness(w_q10262706).
+classWit(w_q10281053, q10281053).
+classInst(w_q10281053, q10281053).
+witness(w_q10281053).
+classWit(w_q103010985, q103010985).
+classInst(w_q103010985, q103010985).
+witness(w_q103010985).
+classWit(w_q10388280, q10388280).
+classInst(w_q10388280, q10388280).
+witness(w_q10388280).
+classWit(w_q106488638, q106488638).
+classInst(w_q106488638, q106488638).
+witness(w_q106488638).
+classWit(w_q107588, q107588).
+classInst(w_q107588, q107588).
+witness(w_q107588).
+classWit(w_q10811, q10811).
+classInst(w_q10811, q10811).
+witness(w_q10811).
+classWit(w_q10915, q10915).
+classInst(w_q10915, q10915).
+witness(w_q10915).
+classWit(w_q110047432, q110047432).
+classInst(w_q110047432, q110047432).
+witness(w_q110047432).
+classWit(w_q1131559, q1131559).
+classInst(w_q1131559, q1131559).
+witness(w_q1131559).
+classWit(w_q11788, q11788).
+classInst(w_q11788, q11788).
+witness(w_q11788).
+classWit(w_q120488301, q120488301).
+classInst(w_q120488301, q120488301).
+witness(w_q120488301).
+classWit(w_q1205110, q1205110).
+classInst(w_q1205110, q1205110).
+witness(w_q1205110).
+classWit(w_q1209254, q1209254).
+classInst(w_q1209254, q1209254).
+witness(w_q1209254).
+classWit(w_q123509500, q123509500).
+classInst(w_q123509500, q123509500).
+witness(w_q123509500).
+classWit(w_q124775759, q124775759).
+classInst(w_q124775759, q124775759).
+witness(w_q124775759).
+classWit(w_q124776186, q124776186).
+classInst(w_q124776186, q124776186).
+witness(w_q124776186).
+classWit(w_q124776324, q124776324).
+classInst(w_q124776324, q124776324).
+witness(w_q124776324).
+classWit(w_q124776411, q124776411).
+classInst(w_q124776411, q124776411).
+witness(w_q124776411).
+classWit(w_q127960, q127960).
+classInst(w_q127960, q127960).
+witness(w_q127960).
+classWit(w_q128863356, q128863356).
+classInst(w_q128863356, q128863356).
+witness(w_q128863356).
+classWit(w_q129021, q129021).
+classInst(w_q129021, q129021).
+witness(w_q129021).
+classWit(w_q130910, q130910).
+classInst(w_q130910, q130910).
+witness(w_q130910).
+classWit(w_q130942, q130942).
+classInst(w_q130942, q130942).
+witness(w_q130942).
+classWit(w_q131092, q131092).
+classInst(w_q131092, q131092).
+witness(w_q131092).
+classWit(w_q131341, q131341).
+classInst(w_q131341, q131341).
+witness(w_q131341).
+classWit(w_q131391, q131391).
+classInst(w_q131391, q131391).
+witness(w_q131391).
+classWit(w_q131793, q131793).
+classInst(w_q131793, q131793).
+witness(w_q131793).
+classWit(w_q131801, q131801).
+classInst(w_q131801, q131801).
+witness(w_q131801).
+classWit(w_q131950, q131950).
+classInst(w_q131950, q131950).
+witness(w_q131950).
+classWit(w_q132666, q132666).
+classInst(w_q132666, q132666).
+witness(w_q132666).
+classWit(w_q132812, q132812).
+classInst(w_q132812, q132812).
+witness(w_q132812).
+classWit(w_q133006, q133006).
+classInst(w_q133006, q133006).
+witness(w_q133006).
+classWit(w_q133187, q133187).
+classInst(w_q133187, q133187).
+witness(w_q133187).
+classWit(w_q133190, q133190).
+classInst(w_q133190, q133190).
+witness(w_q133190).
+classWit(w_q134143, q134143).
+classInst(w_q134143, q134143).
+witness(w_q134143).
+classWit(w_q134681, q134681).
+classInst(w_q134681, q134681).
+witness(w_q134681).
+classWit(w_q134683, q134683).
+classInst(w_q134683, q134683).
+witness(w_q134683).
+classWit(w_q134688, q134688).
+classInst(w_q134688, q134688).
+witness(w_q134688).
+classWit(w_q1349838, q1349838).
+classInst(w_q1349838, q1349838).
+witness(w_q1349838).
+classWit(w_q135333, q135333).
+classInst(w_q135333, q135333).
+witness(w_q135333).
+classWit(w_q135424, q135424).
+classInst(w_q135424, q135424).
+witness(w_q135424).
+classWit(w_q135800, q135800).
+classInst(w_q135800, q135800).
+witness(w_q135800).
+classWit(w_q136586, q136586).
+classInst(w_q136586, q136586).
+witness(w_q136586).
+classWit(w_q136705410, q136705410).
+classInst(w_q136705410, q136705410).
+witness(w_q136705410).
+classWit(w_q1378800, q1378800).
+classInst(w_q1378800, q1378800).
+witness(w_q1378800).
+classWit(w_q138921, q138921).
+classInst(w_q138921, q138921).
+witness(w_q138921).
+classWit(w_q13965050, q13965050).
+classInst(w_q13965050, q13965050).
+witness(w_q13965050).
+classWit(w_q140, q140).
+classInst(w_q140, q140).
+witness(w_q140).
+classWit(w_q145206, q145206).
+classInst(w_q145206, q145206).
+witness(w_q145206).
+classWit(w_q14943214, q14943214).
+classInst(w_q14943214, q14943214).
+witness(w_q14943214).
+classWit(w_q149892, q149892).
+classInst(w_q149892, q149892).
+witness(w_q149892).
+classWit(w_q150598, q150598).
+classInst(w_q150598, q150598).
+witness(w_q150598).
+classWit(w_q150866, q150866).
+classInst(w_q150866, q150866).
+witness(w_q150866).
+classWit(w_q152, q152).
+classInst(w_q152, q152).
+witness(w_q152).
+classWit(w_q15731102, q15731102).
+classInst(w_q15731102, q15731102).
+witness(w_q15731102).
+classWit(w_q159344, q159344).
+classInst(w_q159344, q159344).
+witness(w_q159344).
+classWit(w_q15978631, q15978631).
+classInst(w_q15978631, q15978631).
+witness(w_q15978631).
+classWit(w_q160830, q160830).
+classInst(w_q160830, q160830).
+witness(w_q160830).
+classWit(w_q16548850, q16548850).
+classInst(w_q16548850, q16548850).
+witness(w_q16548850).
+classWit(w_q17092469, q17092469).
+classInst(w_q17092469, q17092469).
+witness(w_q17092469).
+classWit(w_q171283, q171283).
+classInst(w_q171283, q171283).
+witness(w_q171283).
+classWit(w_q172923, q172923).
+classInst(w_q172923, q172923).
+witness(w_q172923).
+classWit(w_q178228, q178228).
+classInst(w_q178228, q178228).
+witness(w_q178228).
+classWit(w_q178559, q178559).
+classInst(w_q178559, q178559).
+witness(w_q178559).
+classWit(w_q1797813, q1797813).
+classInst(w_q1797813, q1797813).
+witness(w_q1797813).
+classWit(w_q181537, q181537).
+classInst(w_q181537, q181537).
+witness(w_q181537).
+classWit(w_q18389731, q18389731).
+classInst(w_q18389731, q18389731).
+witness(w_q18389731).
+classWit(w_q184774, q184774).
+classInst(w_q184774, q184774).
+witness(w_q184774).
+classWit(w_q18498, q18498).
+classInst(w_q18498, q18498).
+witness(w_q18498).
+classWit(w_q186334, q186334).
+classInst(w_q186334, q186334).
+witness(w_q186334).
+classWit(w_q188438, q188438).
+classInst(w_q188438, q188438).
+witness(w_q188438).
+classWit(w_q189069, q189069).
+classInst(w_q189069, q189069).
+witness(w_q189069).
+classWit(w_q189804, q189804).
+classInst(w_q189804, q189804).
+witness(w_q189804).
+classWit(w_q19088, q19088).
+classInst(w_q19088, q19088).
+witness(w_q19088).
+classWit(w_q19159, q19159).
+classInst(w_q19159, q19159).
+witness(w_q19159).
+classWit(w_q19163, q19163).
+classInst(w_q19163, q19163).
+witness(w_q19163).
+classWit(w_q19168, q19168).
+classInst(w_q19168, q19168).
+witness(w_q19168).
+classWit(w_q19561774, q19561774).
+classInst(w_q19561774, q19561774).
+witness(w_q19561774).
+classWit(w_q19595522, q19595522).
+classInst(w_q19595522, q19595522).
+witness(w_q19595522).
+classWit(w_q19806047, q19806047).
+classInst(w_q19806047, q19806047).
+witness(w_q19806047).
+classWit(w_q19939, q19939).
+classInst(w_q19939, q19939).
+witness(w_q19939).
+classWit(w_q2013709, q2013709).
+classInst(w_q2013709, q2013709).
+witness(w_q2013709).
+classWit(w_q2043179, q2043179).
+classInst(w_q2043179, q2043179).
+witness(w_q2043179).
+classWit(w_q20686726, q20686726).
+classInst(w_q20686726, q20686726).
+witness(w_q20686726).
+classWit(w_q206930, q206930).
+classInst(w_q206930, q206930).
+witness(w_q206930).
+classWit(w_q2082668, q2082668).
+classInst(w_q2082668, q2082668).
+witness(w_q2082668).
+classWit(w_q20862, q20862).
+classInst(w_q20862, q20862).
+witness(w_q20862).
+classWit(w_q20868, q20868).
+classInst(w_q20868, q20868).
+witness(w_q20868).
+classWit(w_q21446607, q21446607).
+classInst(w_q21446607, q21446607).
+witness(w_q21446607).
+classWit(w_q21659, q21659).
+classInst(w_q21659, q21659).
+witness(w_q21659).
+classWit(w_q2200094, q2200094).
+classInst(w_q2200094, q2200094).
+witness(w_q2200094).
+classWit(w_q22087764, q22087764).
+classInst(w_q22087764, q22087764).
+witness(w_q22087764).
+classWit(w_q222951, q222951).
+classInst(w_q222951, q222951).
+witness(w_q222951).
+classWit(w_q2254408, q2254408).
+classInst(w_q2254408, q2254408).
+witness(w_q2254408).
+classWit(w_q22933805, q22933805).
+classInst(w_q22933805, q22933805).
+witness(w_q22933805).
+classWit(w_q22934885, q22934885).
+classInst(w_q22934885, q22934885).
+witness(w_q22934885).
+classWit(w_q22934894, q22934894).
+classInst(w_q22934894, q22934894).
+witness(w_q22934894).
+classWit(w_q230177, q230177).
+classInst(w_q230177, q230177).
+witness(w_q230177).
+classWit(w_q2372824, q2372824).
+classInst(w_q2372824, q2372824).
+witness(w_q2372824).
+classWit(w_q23809240, q23809240).
+classInst(w_q23809240, q23809240).
+witness(w_q23809240).
+classWit(w_q2382443, q2382443).
+classInst(w_q2382443, q2382443).
+witness(w_q2382443).
+classWit(w_q23926871, q23926871).
+classInst(w_q23926871, q23926871).
+witness(w_q23926871).
+classWit(w_q242047, q242047).
+classInst(w_q242047, q242047).
+witness(w_q242047).
+classWit(w_q2474088, q2474088).
+classInst(w_q2474088, q2474088).
+witness(w_q2474088).
+classWit(w_q2478975, q2478975).
+classInst(w_q2478975, q2478975).
+witness(w_q2478975).
+classWit(w_q24966129, q24966129).
+classInst(w_q24966129, q24966129).
+witness(w_q24966129).
+classWit(w_q2497754, q2497754).
+classInst(w_q2497754, q2497754).
+witness(w_q2497754).
+classWit(w_q2513125, q2513125).
+classInst(w_q2513125, q2513125).
+witness(w_q2513125).
+classWit(w_q25241, q25241).
+classInst(w_q25241, q25241).
+witness(w_q25241).
+classWit(w_q25265, q25265).
+classInst(w_q25265, q25265).
+witness(w_q25265).
+classWit(w_q25306, q25306).
+classInst(w_q25306, q25306).
+witness(w_q25306).
+classWit(w_q25324, q25324).
+classInst(w_q25324, q25324).
+witness(w_q25324).
+classWit(w_q25329, q25329).
+classInst(w_q25329, q25329).
+witness(w_q25329).
+classWit(w_q25497, q25497).
+classInst(w_q25497, q25497).
+witness(w_q25497).
+classWit(w_q25833, q25833).
+classInst(w_q25833, q25833).
+witness(w_q25833).
+classWit(w_q26214, q26214).
+classInst(w_q26214, q26214).
+witness(w_q26214).
+classWit(w_q26308, q26308).
+classInst(w_q26308, q26308).
+witness(w_q26308).
+classWit(w_q26375, q26375).
+classInst(w_q26375, q26375).
+witness(w_q26375).
+classWit(w_q26708524, q26708524).
+classInst(w_q26708524, q26708524).
+witness(w_q26708524).
+classWit(w_q27070, q27070).
+classInst(w_q27070, q27070).
+witness(w_q27070).
+classWit(w_q2718670, q2718670).
+classInst(w_q2718670, q2718670).
+witness(w_q2718670).
+classWit(w_q27207, q27207).
+classInst(w_q27207, q27207).
+witness(w_q27207).
+classWit(w_q27379, q27379).
+classInst(w_q27379, q27379).
+witness(w_q27379).
+classWit(w_q27399, q27399).
+classInst(w_q27399, q27399).
+witness(w_q27399).
+classWit(w_q2740164, q2740164).
+classInst(w_q2740164, q2740164).
+witness(w_q2740164).
+classWit(w_q27414, q27414).
+classInst(w_q27414, q27414).
+witness(w_q27414).
+classWit(w_q2752642, q2752642).
+classInst(w_q2752642, q2752642).
+witness(w_q2752642).
+classWit(w_q28266, q28266).
+classInst(w_q28266, q28266).
+witness(w_q28266).
+classWit(w_q28647762, q28647762).
+classInst(w_q28647762, q28647762).
+witness(w_q28647762).
+classWit(w_q28746016, q28746016).
+classInst(w_q28746016, q28746016).
+witness(w_q28746016).
+classWit(w_q2910821, q2910821).
+classInst(w_q2910821, q2910821).
+witness(w_q2910821).
+classWit(w_q2934, q2934).
+classInst(w_q2934, q2934).
+witness(w_q2934).
+classWit(w_q3059449, q3059449).
+classInst(w_q3059449, q3059449).
+witness(w_q3059449).
+classWit(w_q3059636, q3059636).
+classInst(w_q3059636, q3059636).
+witness(w_q3059636).
+classWit(w_q3060510, q3060510).
+classInst(w_q3060510, q3060510).
+witness(w_q3060510).
+classWit(w_q310746, q310746).
+classInst(w_q310746, q310746).
+witness(w_q310746).
+classWit(w_q322241, q322241).
+classInst(w_q322241, q322241).
+witness(w_q322241).
+classWit(w_q3235669, q3235669).
+classInst(w_q3235669, q3235669).
+witness(w_q3235669).
+classWit(w_q3239179, q3239179).
+classInst(w_q3239179, q3239179).
+witness(w_q3239179).
+classWit(w_q3280581, q3280581).
+classInst(w_q3280581, q3280581).
+witness(w_q3280581).
+classWit(w_q329457, q329457).
+classInst(w_q329457, q329457).
+witness(w_q329457).
+classWit(w_q3305022, q3305022).
+classInst(w_q3305022, q3305022).
+witness(w_q3305022).
+classWit(w_q3322575, q3322575).
+classInst(w_q3322575, q3322575).
+witness(w_q3322575).
+classWit(w_q33229472, q33229472).
+classInst(w_q33229472, q33229472).
+witness(w_q33229472).
+classWit(w_q33230017, q33230017).
+classInst(w_q33230017, q33230017).
+witness(w_q33230017).
+classWit(w_q3497035, q3497035).
+classInst(w_q3497035, q3497035).
+witness(w_q3497035).
+classWit(w_q4126704, q4126704).
+classInst(w_q4126704, q4126704).
+witness(w_q4126704).
+classWit(w_q4188599, q4188599).
+classInst(w_q4188599, q4188599).
+witness(w_q4188599).
+classWit(w_q430, q430).
+classInst(w_q430, q430).
+witness(w_q430).
+classWit(w_q4687717, q4687717).
+classInst(w_q4687717, q4687717).
+witness(w_q4687717).
+classWit(w_q471797, q471797).
+classInst(w_q471797, q471797).
+witness(w_q471797).
+classWit(w_q474156, q474156).
+classInst(w_q474156, q474156).
+witness(w_q474156).
+classWit(w_q4828332, q4828332).
+classInst(w_q4828332, q4828332).
+witness(w_q4828332).
+classWit(w_q4828939, q4828939).
+classInst(w_q4828939, q4828939).
+witness(w_q4828939).
+classWit(w_q48836620, q48836620).
+classInst(w_q48836620, q48836620).
+witness(w_q48836620).
+classWit(w_q48836623, q48836623).
+classInst(w_q48836623, q48836623).
+witness(w_q48836623).
+classWit(w_q48995893, q48995893).
+classInst(w_q48995893, q48995893).
+witness(w_q48995893).
+classWit(w_q5113, q5113).
+classInst(w_q5113, q5113).
+witness(w_q5113).
+classWit(w_q5173, q5173).
+classInst(w_q5173, q5173).
+witness(w_q5173).
+classWit(w_q5174, q5174).
+classInst(w_q5174, q5174).
+witness(w_q5174).
+classWit(w_q52762328, q52762328).
+classInst(w_q52762328, q52762328).
+witness(w_q52762328).
+classWit(w_q52798775, q52798775).
+classInst(w_q52798775, q52798775).
+witness(w_q52798775).
+classWit(w_q5359418, q5359418).
+classInst(w_q5359418, q5359418).
+witness(w_q5359418).
+classWit(w_q5381965, q5381965).
+classInst(w_q5381965, q5381965).
+witness(w_q5381965).
+classWit(w_q5414469, q5414469).
+classInst(w_q5414469, q5414469).
+witness(w_q5414469).
+classWit(w_q5414620, q5414620).
+classInst(w_q5414620, q5414620).
+witness(w_q5414620).
+classWit(w_q5445608, q5445608).
+classInst(w_q5445608, q5445608).
+witness(w_q5445608).
+classWit(w_q5452918, q5452918).
+classInst(w_q5452918, q5452918).
+witness(w_q5452918).
+classWit(w_q57814795, q57814795).
+classInst(w_q57814795, q57814795).
+witness(w_q57814795).
+classWit(w_q5852697, q5852697).
+classInst(w_q5852697, q5852697).
+witness(w_q5852697).
+classWit(w_q5853182, q5853182).
+classInst(w_q5853182, q5853182).
+witness(w_q5853182).
+classWit(w_q605457, q605457).
+classInst(w_q605457, q605457).
+witness(w_q605457).
+classWit(w_q616657, q616657).
+classInst(w_q616657, q616657).
+witness(w_q616657).
+classWit(w_q635162, q635162).
+classInst(w_q635162, q635162).
+witness(w_q635162).
+classWit(w_q6667323, q6667323).
+classInst(w_q6667323, q6667323).
+witness(w_q6667323).
+classWit(w_q68119354, q68119354).
+classInst(w_q68119354, q68119354).
+witness(w_q68119354).
+classWit(w_q7239, q7239).
+classInst(w_q7239, q7239).
+witness(w_q7239).
+classWit(w_q728566, q728566).
+classInst(w_q728566, q728566).
+witness(w_q728566).
+classWit(w_q729, q729).
+classInst(w_q729, q729).
+witness(w_q729).
+classWit(w_q7377, q7377).
+classInst(w_q7377, q7377).
+witness(w_q7377).
+classWit(w_q7378, q7378).
+classInst(w_q7378, q7378).
+witness(w_q7378).
+classWit(w_q7380, q7380).
+classInst(w_q7380, q7380).
+witness(w_q7380).
+classWit(w_q7439311, q7439311).
+classInst(w_q7439311, q7439311).
+witness(w_q7439311).
+classWit(w_q7460384, q7460384).
+classInst(w_q7460384, q7460384).
+witness(w_q7460384).
+classWit(w_q777371, q777371).
+classInst(w_q777371, q777371).
+witness(w_q777371).
+classWit(w_q780, q780).
+classInst(w_q780, q780).
+witness(w_q780).
+classWit(w_q782930, q782930).
+classInst(w_q782930, q782930).
+witness(w_q782930).
+classWit(w_q80174, q80174).
+classInst(w_q80174, q80174).
+witness(w_q80174).
+classWit(w_q81875, q81875).
+classInst(w_q81875, q81875).
+witness(w_q81875).
+classWit(w_q82261, q82261).
+classInst(w_q82261, q82261).
+witness(w_q82261).
+classWit(w_q853058, q853058).
+classInst(w_q853058, q853058).
+witness(w_q853058).
+classWit(w_q930410, q930410).
+classInst(w_q930410, q930410).
+witness(w_q930410).
+classWit(w_q941624, q941624).
+classInst(w_q941624, q941624).
+witness(w_q941624).
+classWit(w_q950661, q950661).
+classInst(w_q950661, q950661).
+witness(w_q950661).
+classWit(w_q964455, q964455).
+classInst(w_q964455, q964455).
+witness(w_q964455).
+classWit(w_q974811, q974811).
+classInst(w_q974811, q974811).
+witness(w_q974811).
+subjWit(ws_hasRank, hasRank).
+objWit(wo_hasRank, hasRank).
+witness(ws_hasRank).
+witness(wo_hasRank).
+roleWit(ws_hasRank, wo_hasRank, hasRank).
+roleInst(ws_hasRank, wo_hasRank, hasRank).
 
+inSignature(X) :- inSignatureI(X).
+inSignature(X) :- inSignatureC(X).
+inSignature(X) :- inSignatureR(X).
+classInst(E, topC) :- inSignatureI(E).
+roleInst(E1, E2, topR) :- inSignatureI(E1), inSignatureI(E2).
+subClass(C, topC) :- inSignatureC(C).
+subClass(bottomC, C) :- inSignatureC(C).
+subClass(A, A) :- inSignatureC(A).
+disjC(C, bottomC) :- inSignatureC(C).
+subRole(R, topR) :- inSignatureR(R).
+subRole(bottomR, R) :- inSignatureR(R).
+subRole(R, R) :- inSignatureR(R).
+disjR(R, bottomR) :- inSignatureR(R).
+subClass(C, domainTopR) :- inSignatureC(C).
+subClass(domainBottomR, C) :- inSignatureC(C).
 classInst(E, B) :- classInst(E, A), subClass(A, B).
 classInst(E1, A) :- roleInst(E1, E2, R), domain(W, R), subClass(W, A).
 classInst(E2, A) :- roleInst(E1, E2, R), inverse(S, R), domain(W, S), subClass(W, A).
@@ -67,5 +2005,10 @@ subRole(R, S) :- subjWit(E1, R), objWit(E2, R), roleInst(E1, E2, S).
 subRole(R, S1) :- inverse(S1, S), subjWit(E1, R), objWit(E2, R), roleInst(E2, E1, S).
 subRole(R1, S) :- inverse(R1, R), subjWit(E1, R), objWit(E2, R), roleInst(E2, E1, S).
 subRole(R1, S1) :- inverse(R1, R), inverse(S1, S), subjWit(E1, R), objWit(E2, R), roleInst(E1, E2, S).
-query_result(X) :- classInst(X, student).
-query_result(X) :- classInst(X, professor).
+classInstF(E, A) :- inSignature(E), classInst(E, A), inSignature(A).
+roleInstF(E1, E2, A) :- inSignature(E1), inSignature(E2), roleInst(E1, E2, A), inSignature(A).
+subClassF(E1, E2) :- inSignature(E1), inSignature(E2), subClass(E1, E2).
+subRoleF(E1, E2) :- inSignature(E1), inSignature(E2), subRole(E1, E2).
+query_result(Class, SuperClass) :- subClassF(Class, SuperClass).
+
+#show query_result/2.

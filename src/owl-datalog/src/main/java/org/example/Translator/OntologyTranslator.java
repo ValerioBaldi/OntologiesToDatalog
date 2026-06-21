@@ -35,6 +35,8 @@ public class OntologyTranslator {
 
         PositiveTboxAxioms(program);
 
+        EncodingDisjointedness(program);
+
         RemoveWitnessesAndAuxiliaryAxioms(program);
 
         try {
@@ -376,32 +378,32 @@ public class OntologyTranslator {
 
         program.addFact(new Atom(
                 "domain",
-                List.of("domainTopR", "TopR")
+                List.of("domainTopR", "topR")
         ));
 
         program.addFact(new Atom(
                 "inverse",
-                List.of("TopR", "TopR")
+                List.of("topR", "topR")
         ));
 
         program.addFact(new Atom(
                 "domain",
-                List.of("domainBottomR", "BottomR")
+                List.of("domainBottomR", "bottomR")
         ));
 
         program.addFact(new Atom(
                 "inverse",
-                List.of("BottomR", "BottomR")
+                List.of("bottomR", "bottomR")
         ));
 
         program.addFact(new Atom(
                 "subClass",
-                List.of("domainTopR", "TopC")
+                List.of("domainTopR", "topC")
         ));
 
         program.addFact(new Atom(
                 "subClass",
-                List.of("BottomC", "domainTopR")
+                List.of("bottomC", "domainTopR")
         ));
     }
 
@@ -1019,6 +1021,53 @@ public class OntologyTranslator {
         );
 
         program.addRule(r60);
+    }
+
+    private void EncodingDisjointedness(Program program) {
+
+        Rule r61 = new Rule(
+
+                new Atom(
+                        "disjC",
+                        List.of("X", "W")
+                ),
+
+                List.of(
+                        new Atom(
+                                "subClass",
+                                List.of("X", "Y")
+                        ),
+
+                        new Atom(
+                                "complement",
+                                List.of("Y", "W")
+                        )
+                )
+        );
+
+        program.addRule(r61);
+
+        Rule r62 = new Rule(
+
+                new Atom(
+                        "disjR",
+                        List.of("X", "W")
+                ),
+
+                List.of(
+                        new Atom(
+                                "subRole",
+                                List.of("X", "Y")
+                        ),
+
+                        new Atom(
+                                "complement",
+                                List.of("Y", "W")
+                        )
+                )
+        );
+
+        program.addRule(r62);
     }
 
     private void RemoveWitnessesAndAuxiliaryAxioms(Program program) {
