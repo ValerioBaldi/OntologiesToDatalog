@@ -3,6 +3,7 @@ org\example\Translator\OntologyTranslator.class
 org\example\Main.class
 org\example\Translator\QueryTranslator$1.class
 org\example\model\Rule.class
+org\example\serializer\oldDatalogSerializer.class
 org\example\Translator\QueryTranslator.class
 org\example\App.class
 org\example\serializer\DatalogSerializer.class

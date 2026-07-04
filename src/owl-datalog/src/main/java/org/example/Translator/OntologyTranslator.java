@@ -23,6 +23,8 @@ public class OntologyTranslator {
 
         OntologyEncoding(ontology, program);
 
+        addComplementPredicates(ontology, program);
+
         addSignaturePredicates(ontology, program);
 
         encodingTopAndBottomPredicates(program);
@@ -58,12 +60,7 @@ public class OntologyTranslator {
                     && ax.getIndividual().isNamed()) {
 
                 
-                String individual = iriMapper.getSymbol(
-                        ax.getIndividual()
-                                .asOWLNamedIndividual()
-                                .getIRI()
-                                .toString()
-                );
+                String individual = getIndividualSymbol(ax.getIndividual());
 
                 String cls = iriMapper.getSymbol(
                         ax.getClassExpression()
@@ -84,21 +81,9 @@ public class OntologyTranslator {
                 ontology.getAxioms(
                         AxiomType.OBJECT_PROPERTY_ASSERTION)) {
 
-            String s = 
-                    iriMapper.getSymbol(
-                        ax.getSubject()
-                                .asOWLNamedIndividual()
-                                .getIRI()
-                                .toString()
-                     );
+            String s = getIndividualSymbol(ax.getSubject());
 
-            String o =
-                iriMapper.getSymbol(
-                    ax.getObject()
-                            .asOWLNamedIndividual()
-                            .getIRI()
-                            .toString()
-                );
+            String o = getIndividualSymbol(ax.getObject());
 
             String r =
                     iriMapper.getSymbol(
@@ -116,15 +101,38 @@ public class OntologyTranslator {
             );
         }
 
+        for (OWLDifferentIndividualsAxiom ax :
+            ontology.getAxioms(AxiomType.DIFFERENT_INDIVIDUALS)) {
+
+                List<OWLIndividual> inds = ax.getIndividualsAsList();
+
+                for (int i = 0; i < inds.size(); i++) {
+                        for (int j = i + 1; j < inds.size(); j++) {
+
+                                if (inds.get(i).isNamed() && inds.get(j).isNamed()) {
+                                        String a = getIndividualSymbol(inds.get(i));
+                                        String b = getIndividualSymbol(inds.get(j));
+
+                                        program.addFact(new Atom("distinct", List.of(a, b)));
+                                        program.addFact(new Atom("distinct", List.of(b, a)));
+                                }
+                        }
+                }
+        }
+
         for (OWLSubClassOfAxiom ax :
                 ontology.getAxioms(AxiomType.SUBCLASS_OF)) {
 
-            if (ax.getSubClass().isOWLClass()
-                    && ax.getSuperClass().isOWLClass()) {
+
+            OWLClassExpression subClass = ax.getSubClass();
+            OWLClassExpression supClass = ax.getSuperClass();
+
+            if (subClass.isOWLClass()
+                    && supClass.isOWLClass()) {
 
                 String sub =
                         iriMapper.getSymbol(
-                                ax.getSubClass()
+                                subClass
                                         .asOWLClass()
                                         .getIRI()
                                         .toString()
@@ -132,7 +140,7 @@ public class OntologyTranslator {
 
                 String sup =
                         iriMapper.getSymbol(
-                                ax.getSuperClass()
+                                supClass
                                                 .asOWLClass()
                                                 .getIRI()
                                                 .toString()
@@ -145,6 +153,36 @@ public class OntologyTranslator {
                         )
                 );
             }
+
+            else if (subClass.isOWLClass()
+                        && supClass instanceof OWLObjectComplementOf complement
+                        && complement.getOperand().isOWLClass()) {
+
+                String a = iriMapper.getSymbol(subClass.asOWLClass().getIRI().toString());
+                String b = iriMapper.getSymbol(complement.getOperand().asOWLClass().getIRI().toString());
+
+                addConceptDisjointness(program, a, b);
+            }
+        }
+
+        for (OWLDisjointClassesAxiom ax :
+            ontology.getAxioms(AxiomType.DISJOINT_CLASSES)) {
+
+                List<OWLClassExpression> classes = ax.getClassExpressionsAsList();
+
+                for (int i = 0; i < classes.size(); i++) {
+                        for (int j = i + 1; j < classes.size(); j++) {
+
+                                if (classes.get(i).isOWLClass()
+                                        && classes.get(j).isOWLClass()) {
+
+                                String a = getClassSymbol(classes.get(i).asOWLClass());
+                                String b = getClassSymbol(classes.get(j).asOWLClass());
+
+                                addConceptDisjointness(program, a, b);
+                                }
+                        }
+                }
         }
 
         for (OWLSubObjectPropertyOfAxiom ax :
@@ -176,6 +214,27 @@ public class OntologyTranslator {
             );
         }
 
+        for (OWLDisjointObjectPropertiesAxiom ax :
+            ontology.getAxioms(AxiomType.DISJOINT_OBJECT_PROPERTIES)) {
+
+                List<OWLObjectPropertyExpression> props =
+                        ax.getProperties().stream().toList();
+
+                for (int i = 0; i < props.size(); i++) {
+                        for (int j = i + 1; j < props.size(); j++) {
+
+                                if (!props.get(i).isAnonymous()
+                                        && !props.get(j).isAnonymous()) {
+
+                                String r = getRoleSymbol(props.get(i).asOWLObjectProperty());
+                                String s = getRoleSymbol(props.get(j).asOWLObjectProperty());
+
+                                addRoleDisjointness(program, r, s);
+                                }
+                        }
+                }
+        }
+
         for (OWLObjectPropertyDomainAxiom ax :
                         ontology.getAxioms(AxiomType.OBJECT_PROPERTY_DOMAIN)) {
 
@@ -203,10 +262,10 @@ public class OntologyTranslator {
                                 )
                         );
                 }
-                }
+        }
 
-                for (OWLObjectPropertyRangeAxiom ax :
-                        ontology.getAxioms(AxiomType.OBJECT_PROPERTY_RANGE)) {
+        for (OWLObjectPropertyRangeAxiom ax :
+                ontology.getAxioms(AxiomType.OBJECT_PROPERTY_RANGE)) {
 
                 if (!ax.getProperty().isAnonymous()
                         && ax.getRange().isOWLClass()) {
@@ -227,15 +286,15 @@ public class OntologyTranslator {
 
                         program.addFact(
                                 new Atom(
-                                        "range",
+                                        "rangeP",
                                         List.of(range, role)
                                 )
                         );
                 }
-                }
+        }
 
-                for (OWLInverseObjectPropertiesAxiom ax :
-                        ontology.getAxioms(AxiomType.INVERSE_OBJECT_PROPERTIES)) {
+        for (OWLInverseObjectPropertiesAxiom ax :
+                ontology.getAxioms(AxiomType.INVERSE_OBJECT_PROPERTIES)) {
 
                 OWLObjectPropertyExpression first =
                         ax.getFirstProperty();
@@ -272,6 +331,24 @@ public class OntologyTranslator {
                         );
                 }
         }
+
+        for (OWLReflexiveObjectPropertyAxiom ax :
+            ontology.getAxioms(AxiomType.REFLEXIVE_OBJECT_PROPERTY)) {
+
+                if (!ax.getProperty().isAnonymous()) {
+                        String r = getRoleSymbol(ax.getProperty().asOWLObjectProperty());
+                        program.addFact(new Atom("refl", List.of(r)));
+                }
+        }
+
+        for (OWLIrreflexiveObjectPropertyAxiom ax :
+                ontology.getAxioms(AxiomType.IRREFLEXIVE_OBJECT_PROPERTY)) {
+
+                if (!ax.getProperty().isAnonymous()) {
+                        String r = getRoleSymbol(ax.getProperty().asOWLObjectProperty());
+                        program.addFact(new Atom("irrefl", List.of(r)));
+                }
+        }
     }
 
    private void addSignaturePredicates(OWLOntology ontology, Program program) {
@@ -279,15 +356,13 @@ public class OntologyTranslator {
         // Individual signature
         ontology.individualsInSignature().forEach(ind -> {
                 if (!ind.isAnonymous()) {
-                String e = iriMapper.getSymbol(
-                        ind.asOWLNamedIndividual().getIRI().toString()
-                );
+                String e = getIndividualSymbol(ind);
 
                 program.addFact(new Atom("inSignatureI", List.of(e)));
                 }
         });
 
-        // Concept signature
+        // Class signature
         ontology.classesInSignature().forEach(cls -> {
                 String a = iriMapper.getSymbol(
                         cls.getIRI().toString()
@@ -305,7 +380,6 @@ public class OntologyTranslator {
                 program.addFact(new Atom("inSignatureR", List.of(r)));
         });
 
-        // Generic signature rules
         program.addRule(new Rule(
                 new Atom("inSignature", List.of("X")),
                 List.of(new Atom("inSignatureI", List.of("X")))
@@ -627,6 +701,25 @@ public class OntologyTranslator {
                     )
             );
         }
+    }
+
+    private void addComplementPredicates(OWLOntology ontology, Program program) {
+
+        ontology.classesInSignature().forEach(cls -> {
+                String e = getClassSymbol(cls);
+                String notE = complementOf(e);
+
+                program.addFact(new Atom("complement", List.of(e, notE)));
+                program.addFact(new Atom("complement", List.of(notE, e)));
+        });
+
+        ontology.objectPropertiesInSignature().forEach(prop -> {
+                String e = getRoleSymbol(prop);
+                String notE = complementOf(e);
+
+                program.addFact(new Atom("complement", List.of(e, notE)));
+                program.addFact(new Atom("complement", List.of(notE, e)));
+        });
     }
 
     private void InferenceOfABoxFacts(Program program) {
@@ -1168,4 +1261,41 @@ public class OntologyTranslator {
 
         program.addRule(rule70);
      }
+
+
+     // helper
+
+     private String getIndividualSymbol(OWLIndividual individual) {
+        return iriMapper.getSymbol(
+                individual.asOWLNamedIndividual().getIRI().toString()
+        );
+   }
+
+     private String getClassSymbol(OWLClass cls) {
+        return iriMapper.getSymbol(cls.getIRI().toString());
+  }
+
+    private String getRoleSymbol(OWLObjectProperty prop) {
+        return iriMapper.getSymbol(prop.getIRI().toString());
+        }
+
+    private String complementOf(String symbol) {
+        return "not_" + symbol;
+        }
+
+    private void addConceptDisjointness(Program program, String a, String b) {
+        String notA = complementOf(a);
+        String notB = complementOf(b);
+
+        program.addFact(new Atom("subClass", List.of(a, notB)));
+        program.addFact(new Atom("subClass", List.of(b, notA)));
+        }
+
+    private void addRoleDisjointness(Program program, String r, String s) {
+        String notR = complementOf(r);
+        String notS = complementOf(s);
+
+        program.addFact(new Atom("subRole", List.of(r, notS)));
+        program.addFact(new Atom("subRole", List.of(s, notR)));
+        }
 }
